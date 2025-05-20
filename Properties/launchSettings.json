@@ -4,5 +4,8 @@
       "commandName": "Project",
       "nativeDebugging": false
     }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=Data\\local.db"
   }
 }
