@@ -1,6 +1,6 @@
 ﻿namespace MusicPlayer.database.Models;
 
-public class User : Timestamps
+public class User
 {
     public Guid Id { get; init; }
     public string Email { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace MusicPlayer.database.Models;
 
-public class SongMetadata : Timestamps
+public class SongMetadata
 {
     public Guid Id { get; set; }
     public Guid SongId { get; set; }

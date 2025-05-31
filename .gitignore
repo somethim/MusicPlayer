@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+.env
+.env.local
+
 # User-specific files
 *.suo
 *.user
@@ -59,7 +62,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-.dotnet/
 
 # StyleCop
 StyleCopReport.xml
