@@ -1,17 +1,29 @@
-namespace MusicPlayer
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MusicPlayer.database;
+
+namespace MusicPlayer;
+
+internal static class Program
 {
-    internal static class Program
+    [STAThread]
+    private static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Dashboard());
-        }
+        var host = Host.CreateDefaultBuilder()
+            .ConfigureAppConfiguration((_, config) => { config.AddJsonFile("Assets/appsettings.json", false, true); })
+            .ConfigureServices((context, services) =>
+            {
+                var connectionString = context.Configuration.GetConnectionString("DefaultConnection");
+                services.AddDbContext<MusicPlayerContext>(options =>
+                    options.UseNpgsql(connectionString));
+                services.AddScoped<Dashboard>();
+            })
+            .Build();
+
+        ApplicationConfiguration.Initialize();
+        var dashboard = host.Services.GetRequiredService<Dashboard>();
+        Application.Run(dashboard);
     }
 }
