@@ -44,7 +44,7 @@
             sign_up_redirect_label.Location = new System.Drawing.Point(921, 438);
             sign_up_redirect_label.Name = "sign_up_redirect_label";
             sign_up_redirect_label.Size = new System.Drawing.Size(159, 60);
-            sign_up_redirect_label.TabIndex = 6;
+            sign_up_redirect_label.TabIndex = 3;
             sign_up_redirect_label.Text = "Sign Up";
             sign_up_redirect_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             sign_up_redirect_label.Click += sign_up_redirect_label_Click;
@@ -56,7 +56,7 @@
             label1.Location = new System.Drawing.Point(500, 443);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(415, 56);
-            label1.TabIndex = 5;
+            label1.TabIndex = 6;
             label1.Text = "Don\'t have an account?";
             // 
             // sign_in_password_label
@@ -65,7 +65,7 @@
             sign_in_password_label.Location = new System.Drawing.Point(131, 246);
             sign_in_password_label.Name = "sign_in_password_label";
             sign_in_password_label.Size = new System.Drawing.Size(370, 56);
-            sign_in_password_label.TabIndex = 4;
+            sign_in_password_label.TabIndex = 5;
             sign_in_password_label.Text = "Password";
             sign_in_password_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -76,7 +76,7 @@
             sign_in_password_text_box.Name = "sign_in_password_text_box";
             sign_in_password_text_box.PasswordChar = '*';
             sign_in_password_text_box.Size = new System.Drawing.Size(370, 55);
-            sign_in_password_text_box.TabIndex = 3;
+            sign_in_password_text_box.TabIndex = 1;
             // 
             // sign_in_username_email_label
             // 
@@ -84,7 +84,7 @@
             sign_in_username_email_label.Location = new System.Drawing.Point(131, 65);
             sign_in_username_email_label.Name = "sign_in_username_email_label";
             sign_in_username_email_label.Size = new System.Drawing.Size(370, 56);
-            sign_in_username_email_label.TabIndex = 2;
+            sign_in_username_email_label.TabIndex = 4;
             sign_in_username_email_label.Text = "Username or Email";
             sign_in_username_email_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -94,7 +94,7 @@
             sign_in_username_email_text_box.Location = new System.Drawing.Point(131, 145);
             sign_in_username_email_text_box.Name = "sign_in_username_email_text_box";
             sign_in_username_email_text_box.Size = new System.Drawing.Size(370, 55);
-            sign_in_username_email_text_box.TabIndex = 1;
+            sign_in_username_email_text_box.TabIndex = 0;
             // 
             // sign_in_button
             // 
@@ -102,7 +102,7 @@
             sign_in_button.Location = new System.Drawing.Point(208, 439);
             sign_in_button.Name = "sign_in_button";
             sign_in_button.Size = new System.Drawing.Size(133, 57);
-            sign_in_button.TabIndex = 0;
+            sign_in_button.TabIndex = 2;
             sign_in_button.Text = "Sign In";
             sign_in_button.UseVisualStyleBackColor = true;
             sign_in_button.Click += sign_in_button_Click;

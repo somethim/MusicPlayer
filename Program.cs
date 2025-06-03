@@ -13,14 +13,12 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        Env.Load();
-
+        Env.Load(Path.Combine(AppContext.BaseDirectory, ".env"));
         var host = Host.CreateDefaultBuilder()
             .ConfigureAppConfiguration((_, config) =>
             {
                 config.Sources.Clear();
                 config.AddEnvironmentVariables();
-                config.AddJsonFile("appsettings.json", true);
             })
             .ConfigureServices((_, services) =>
             {
@@ -29,14 +27,11 @@ internal static class Program
                     options.UseNpgsql(connectionString));
 
                 services.AddScoped<SignIn>();
-                services.AddScoped<Dashboard>();
-                services.AddScoped<Music>();
-                services.AddScoped<Settings>();
             })
             .Build();
 
         ApplicationConfiguration.Initialize();
-        var auth = host.Services.GetRequiredService<SignIn>();
-        Application.Run(auth);
+        var signIn = host.Services.GetRequiredService<SignIn>();
+        Application.Run(signIn);
     }
 }

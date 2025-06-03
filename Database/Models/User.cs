@@ -11,7 +11,7 @@ public class User
     public string Password { get; set; }
     public string? Token { get; set; }
 
-    public static async Task<User> Create(MusicPlayerContext dbContext, string username, string email, string password)
+    private static async Task<User> Create(MusicPlayerContext dbContext, string username, string email, string password)
     {
         if (await Exists(dbContext, username, email))
             throw new InvalidOperationException("User with this username or email already exists.");
@@ -67,19 +67,19 @@ public class User
         await ClearLocalToken();
     }
 
-    public static async Task<(User user, string token)> Signup(MusicPlayerContext dbContext, string username,
+    public static async Task<User> Register(MusicPlayerContext dbContext, string username,
         string email, string password)
     {
         var user = await Create(dbContext, username, email, password);
         var token = await user.Login(dbContext, password);
 
         if (token == null)
-            throw new InvalidOperationException("Failed to login after signup.");
+            throw new InvalidOperationException("Failed to login after register.");
 
-        return (user, token);
+        return user;
     }
 
-    public static async Task<bool> Exists(MusicPlayerContext dbContext, string username, string email)
+    private static async Task<bool> Exists(MusicPlayerContext dbContext, string username, string email)
     {
         return await dbContext.Users.AnyAsync(u =>
             u.Username == username ||

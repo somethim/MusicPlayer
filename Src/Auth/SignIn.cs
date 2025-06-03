@@ -19,7 +19,7 @@ public partial class SignIn : Form
         {
             var token = await User.GetStoredToken();
             if (token is null) return;
-            var dashboard = new Dashboard();
+            var dashboard = new Dashboard(_dbContext, await User.FindByToken(_dbContext, token));
             dashboard.Show();
             Hide();
         }
@@ -43,6 +43,9 @@ public partial class SignIn : Form
                        ?? throw new InvalidOperationException("User not found.");
 
             await user.Login(_dbContext, password);
+            var dashboard = new Dashboard(_dbContext, user);
+            dashboard.Show();
+            Hide();
         }
         catch (Exception ex)
         {

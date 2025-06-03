@@ -21,9 +21,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Update="Src\Auth\SignUp.cs">
+        <Compile Update="Src\Auth\SignIn.cs">
             <SubType>Form</SubType>
         </Compile>
+        <None Include=".env" CopyToOutputDirectory="PreserveNewest"/>
     </ItemGroup>
 
 </Project>

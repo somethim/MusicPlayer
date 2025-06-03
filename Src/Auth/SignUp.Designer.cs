@@ -57,7 +57,7 @@ partial class SignUp
         sign_up_password_text_box.PasswordChar = '*';
         sign_up_password_text_box.PlaceholderText = "Password";
         sign_up_password_text_box.Size = new System.Drawing.Size(370, 55);
-        sign_up_password_text_box.TabIndex = 1;
+        sign_up_password_text_box.TabIndex = 2;
         // 
         // sign_up_username_text_box
         // 
@@ -66,7 +66,7 @@ partial class SignUp
         sign_up_username_text_box.Name = "sign_up_username_text_box";
         sign_up_username_text_box.PlaceholderText = "Username";
         sign_up_username_text_box.Size = new System.Drawing.Size(370, 55);
-        sign_up_username_text_box.TabIndex = 2;
+        sign_up_username_text_box.TabIndex = 1;
         // 
         // sign_up_confirm_password_text_box
         // 
@@ -96,7 +96,7 @@ partial class SignUp
         label1.Location = new System.Drawing.Point(500, 453);
         label1.Name = "label1";
         label1.Size = new System.Drawing.Size(444, 56);
-        label1.TabIndex = 5;
+        label1.TabIndex = 6;
         label1.Text = "Already have an account?";
         // 
         // sign_in_redirect_label
@@ -106,7 +106,7 @@ partial class SignUp
         sign_in_redirect_label.Location = new System.Drawing.Point(924, 453);
         sign_in_redirect_label.Name = "sign_in_redirect_label";
         sign_in_redirect_label.Size = new System.Drawing.Size(159, 60);
-        sign_in_redirect_label.TabIndex = 6;
+        sign_in_redirect_label.TabIndex = 5;
         sign_in_redirect_label.Text = "Sign In";
         sign_in_redirect_label.Click += sign_in_redirect_label_Click;
         // 
