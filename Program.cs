@@ -21,9 +21,9 @@ internal static class Program
                 config.AddEnvironmentVariables();
                 config.AddJsonFile("appsettings.json", true);
             })
-            .ConfigureServices((context, services) =>
+            .ConfigureServices((_, services) =>
             {
-                var connectionString = context.Configuration.GetConnectionString("DefaultConnection");
+                var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
                 services.AddDbContext<MusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
                 services.AddScoped<Settings>();
