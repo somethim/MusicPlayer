@@ -10,7 +10,6 @@ public partial class SignUp : Form
     public SignUp(MusicPlayerContext dbContext)
     {
         _dbContext = dbContext;
-
         InitializeComponent();
     }
 
@@ -26,7 +25,7 @@ public partial class SignUp : Form
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error retrieving token: {ex.Message}");
+            Console.WriteLine(@$"Error retrieving token: {ex.Message}");
         }
     }
 
@@ -51,7 +50,7 @@ public partial class SignUp : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"An error occurred: {ex.Message}");
+            MessageBox.Show(@$"An error occurred: {ex.Message}");
         }
     }
 

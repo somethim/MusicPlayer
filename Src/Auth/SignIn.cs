@@ -25,7 +25,7 @@ public partial class SignIn : Form
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error retrieving token: {ex.Message}");
+            Console.WriteLine(@$"Error retrieving token: {ex.Message}");
         }
     }
 
@@ -43,13 +43,13 @@ public partial class SignIn : Form
                        ?? throw new InvalidOperationException("User not found.");
 
             await user.Login(_dbContext, password);
-            var dashboard = new Dashboard(_dbContext, user);
+            var dashboard = new Settings.Settings(_dbContext, user);
             dashboard.Show();
             Hide();
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"An error occurred: {ex.Message}");
+            MessageBox.Show(@$"An error occurred: {ex.Message}");
         }
     }
 
