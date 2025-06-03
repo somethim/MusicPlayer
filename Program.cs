@@ -26,12 +26,12 @@ internal static class Program
                 var connectionString = context.Configuration.GetConnectionString("DefaultConnection");
                 services.AddDbContext<MusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
-                services.AddScoped<Dashboard>();
+                services.AddScoped<Settings>();
             })
             .Build();
 
         ApplicationConfiguration.Initialize();
-        var dashboard = host.Services.GetRequiredService<Dashboard>();
-        Application.Run(dashboard);
+        var settings = host.Services.GetRequiredService<Settings>();
+        Application.Run(settings);
     }
 }
