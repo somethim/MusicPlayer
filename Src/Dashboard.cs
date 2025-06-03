@@ -209,13 +209,7 @@ namespace MusicPlayer
         });
 
         }
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
-        }
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

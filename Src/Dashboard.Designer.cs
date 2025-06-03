@@ -34,22 +34,22 @@
             profilePic = new PictureBox();
             searchBox = new TextBox();
             featuredPanel = new Panel();
-            featuredTitle = new Label();
-            featuredSubtitle = new Label();
             nextButton = new Button();
+            featuredSubtitle = new Label();
+            featuredTitle = new Label();
             discoverLabel = new Label();
             songList = new FlowLayoutPanel();
             songPanel = new Panel();
-            songArtwork = new PictureBox();
-            songTitle = new Label();
             songArtist = new Label();
+            songTitle = new Label();
+            songArtwork = new PictureBox();
             progressBar = new ProgressBar();
             playerPanel = new Panel();
-            playerArtwork = new PictureBox();
-            playerSong = new Label();
-            dashboardCurrentSongs = new Label();
-            likeButton = new Button();
             playButton = new Button();
+            likeButton = new Button();
+            dashboardCurrentSongs = new Label();
+            playerSong = new Label();
+            playerArtwork = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)profilePic).BeginInit();
             featuredPanel.SuspendLayout();
             songList.SuspendLayout();
@@ -79,7 +79,7 @@
             // profilePic
             // 
             profilePic.BackColor = Color.Gray;
-            profilePic.Location = new Point(366, 36);
+            profilePic.Location = new Point(484, 36);
             profilePic.Name = "profilePic";
             profilePic.Size = new Size(40, 40);
             profilePic.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -93,8 +93,9 @@
             searchBox.BorderStyle = BorderStyle.None;
             searchBox.ForeColor = Color.Gray;
             searchBox.Location = new Point(20, 80);
+            searchBox.Multiline = true;
             searchBox.Name = "searchBox";
-            searchBox.Size = new Size(340, 36);
+            searchBox.Size = new Size(438, 38);
             searchBox.TabIndex = 3;
             // 
             // featuredPanel
@@ -110,16 +111,19 @@
             featuredPanel.Size = new Size(487, 153);
             featuredPanel.TabIndex = 4;
             // 
-            // featuredTitle
+            // nextButton
             // 
-            featuredTitle.AutoSize = true;
-            featuredTitle.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            featuredTitle.ForeColor = Color.White;
-            featuredTitle.Location = new Point(3, 13);
-            featuredTitle.Name = "featuredTitle";
-            featuredTitle.Size = new Size(390, 43);
-            featuredTitle.TabIndex = 5;
-            featuredTitle.Text = "Go find your favorites";
+            nextButton.BackColor = Color.FromArgb(100, 50, 200);
+            nextButton.FlatAppearance.BorderSize = 0;
+            nextButton.FlatStyle = FlatStyle.Flat;
+            nextButton.Font = new Font("Showcard Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nextButton.ForeColor = Color.White;
+            nextButton.Location = new Point(421, 110);
+            nextButton.Name = "nextButton";
+            nextButton.Size = new Size(40, 40);
+            nextButton.TabIndex = 5;
+            nextButton.Text = "→";
+            nextButton.UseVisualStyleBackColor = false;
             // 
             // featuredSubtitle
             // 
@@ -132,18 +136,16 @@
             featuredSubtitle.TabIndex = 6;
             featuredSubtitle.Text = "Top songs being discoverd around the world right now";
             // 
-            // nextButton
+            // featuredTitle
             // 
-            nextButton.BackColor = Color.FromArgb(100, 50, 200);
-            nextButton.FlatAppearance.BorderSize = 0;
-            nextButton.FlatStyle = FlatStyle.Flat;
-            nextButton.ForeColor = Color.White;
-            nextButton.Location = new Point(421, 110);
-            nextButton.Name = "nextButton";
-            nextButton.Size = new Size(40, 40);
-            nextButton.TabIndex = 5;
-            nextButton.Text = ">";
-            nextButton.UseVisualStyleBackColor = false;
+            featuredTitle.AutoSize = true;
+            featuredTitle.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            featuredTitle.ForeColor = Color.White;
+            featuredTitle.Location = new Point(3, 13);
+            featuredTitle.Name = "featuredTitle";
+            featuredTitle.Size = new Size(390, 43);
+            featuredTitle.TabIndex = 5;
+            featuredTitle.Text = "Go find your favorites";
             // 
             // discoverLabel
             // 
@@ -177,15 +179,16 @@
             songPanel.Size = new Size(508, 116);
             songPanel.TabIndex = 0;
             // 
-            // songArtwork
+            // songArtist
             // 
-            songArtwork.BackColor = Color.Gray;
-            songArtwork.Location = new Point(5, 5);
-            songArtwork.Name = "songArtwork";
-            songArtwork.Size = new Size(93, 108);
-            songArtwork.SizeMode = PictureBoxSizeMode.StretchImage;
-            songArtwork.TabIndex = 0;
-            songArtwork.TabStop = false;
+            songArtist.AutoSize = true;
+            songArtist.Font = new Font("Arial Narrow", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            songArtist.ForeColor = Color.LightGray;
+            songArtist.Location = new Point(137, 70);
+            songArtist.Name = "songArtist";
+            songArtist.Size = new Size(125, 29);
+            songArtist.TabIndex = 2;
+            songArtist.Text = "The Weeknd";
             // 
             // songTitle
             // 
@@ -198,16 +201,15 @@
             songTitle.TabIndex = 1;
             songTitle.Text = "Heartless";
             // 
-            // songArtist
+            // songArtwork
             // 
-            songArtist.AutoSize = true;
-            songArtist.Font = new Font("Arial Narrow", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            songArtist.ForeColor = Color.LightGray;
-            songArtist.Location = new Point(137, 70);
-            songArtist.Name = "songArtist";
-            songArtist.Size = new Size(125, 29);
-            songArtist.TabIndex = 2;
-            songArtist.Text = "The Weeknd";
+            songArtwork.BackColor = Color.Gray;
+            songArtwork.Location = new Point(5, 5);
+            songArtwork.Name = "songArtwork";
+            songArtwork.Size = new Size(93, 108);
+            songArtwork.SizeMode = PictureBoxSizeMode.StretchImage;
+            songArtwork.TabIndex = 0;
+            songArtwork.TabStop = false;
             // 
             // progressBar
             // 
@@ -233,26 +235,30 @@
             playerPanel.Size = new Size(508, 106);
             playerPanel.TabIndex = 1;
             // 
-            // playerArtwork
+            // playButton
             // 
-            playerArtwork.BackColor = Color.Gray;
-            playerArtwork.Location = new Point(5, 3);
-            playerArtwork.Name = "playerArtwork";
-            playerArtwork.Size = new Size(93, 66);
-            playerArtwork.SizeMode = PictureBoxSizeMode.StretchImage;
-            playerArtwork.TabIndex = 8;
-            playerArtwork.TabStop = false;
+            playButton.BackColor = Color.Transparent;
+            playButton.FlatStyle = FlatStyle.Flat;
+            playButton.Font = new Font("Goudy Stout", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            playButton.ForeColor = Color.FromArgb(150, 100, 200);
+            playButton.Location = new Point(372, 24);
+            playButton.Name = "playButton";
+            playButton.Size = new Size(63, 44);
+            playButton.TabIndex = 12;
+            playButton.Text = "||";
+            playButton.UseVisualStyleBackColor = false;
             // 
-            // playerSong
+            // likeButton
             // 
-            playerSong.AutoSize = true;
-            playerSong.Font = new Font("Arial Narrow", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            playerSong.ForeColor = Color.White;
-            playerSong.Location = new Point(106, 40);
-            playerSong.Name = "playerSong";
-            playerSong.Size = new Size(260, 29);
-            playerSong.TabIndex = 9;
-            playerSong.Text = "The Kid LAROI,Justin Bieber";
+            likeButton.BackColor = Color.Transparent;
+            likeButton.FlatStyle = FlatStyle.Flat;
+            likeButton.ForeColor = Color.FromArgb(150, 100, 200);
+            likeButton.Location = new Point(461, 24);
+            likeButton.Name = "likeButton";
+            likeButton.Size = new Size(32, 45);
+            likeButton.TabIndex = 11;
+            likeButton.Text = "❤️";
+            likeButton.UseVisualStyleBackColor = false;
             // 
             // dashboardCurrentSongs
             // 
@@ -266,30 +272,26 @@
             dashboardCurrentSongs.TabIndex = 10;
             dashboardCurrentSongs.Text = "Stay";
             // 
-            // likeButton
+            // playerSong
             // 
-            likeButton.BackColor = Color.Transparent;
-            likeButton.FlatStyle = FlatStyle.Flat;
-            likeButton.ForeColor = Color.FromArgb(150, 100, 200);
-            likeButton.Location = new Point(461, 24);
-            likeButton.Name = "likeButton";
-            likeButton.Size = new Size(32, 45);
-            likeButton.TabIndex = 11;
-            likeButton.Text = "z";
-            likeButton.UseVisualStyleBackColor = false;
+            playerSong.AutoSize = true;
+            playerSong.Font = new Font("Arial Narrow", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            playerSong.ForeColor = Color.White;
+            playerSong.Location = new Point(106, 40);
+            playerSong.Name = "playerSong";
+            playerSong.Size = new Size(260, 29);
+            playerSong.TabIndex = 9;
+            playerSong.Text = "The Kid LAROI,Justin Bieber";
             // 
-            // playButton
+            // playerArtwork
             // 
-            playButton.BackColor = Color.Transparent;
-            playButton.FlatStyle = FlatStyle.Flat;
-            playButton.Font = new Font("Goudy Stout", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            playButton.ForeColor = Color.FromArgb(150, 100, 200);
-            playButton.Location = new Point(372, 24);
-            playButton.Name = "playButton";
-            playButton.Size = new Size(63, 44);
-            playButton.TabIndex = 12;
-            playButton.Text = "||";
-            playButton.UseVisualStyleBackColor = false;
+            playerArtwork.BackColor = Color.Gray;
+            playerArtwork.Location = new Point(5, 3);
+            playerArtwork.Name = "playerArtwork";
+            playerArtwork.Size = new Size(93, 66);
+            playerArtwork.SizeMode = PictureBoxSizeMode.StretchImage;
+            playerArtwork.TabIndex = 8;
+            playerArtwork.TabStop = false;
             // 
             // Dashboard
             // 
