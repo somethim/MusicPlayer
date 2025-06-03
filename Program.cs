@@ -13,7 +13,7 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        Env.Load(Path.Combine(AppContext.BaseDirectory, ".env"));
+        Env.Load();
         var host = Host.CreateDefaultBuilder()
             .ConfigureAppConfiguration((_, config) =>
             {

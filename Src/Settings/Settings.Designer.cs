@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             panelSettings = new System.Windows.Forms.Panel();
             settings_submit_button = new System.Windows.Forms.Button();
             settings_sign_out_button = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             // panelSettings
             // 
             panelSettings.BackColor = System.Drawing.Color.GhostWhite;
+            panelSettings.BackgroundImage = ((System.Drawing.Image)resources.GetObject("panelSettings.BackgroundImage"));
             panelSettings.Controls.Add(settings_submit_button);
             panelSettings.Controls.Add(settings_sign_out_button);
             panelSettings.Controls.Add(settings_new_password_textbox);
@@ -57,13 +59,14 @@
             // settings_submit_button
             // 
             settings_submit_button.BackColor = System.Drawing.Color.LavenderBlush;
+            settings_submit_button.BackgroundImage = ((System.Drawing.Image)resources.GetObject("settings_submit_button.BackgroundImage"));
             settings_submit_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             settings_submit_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
             settings_submit_button.Location = new System.Drawing.Point(59, 364);
             settings_submit_button.Name = "settings_submit_button";
             settings_submit_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             settings_submit_button.Size = new System.Drawing.Size(133, 57);
-            settings_submit_button.TabIndex = 6;
+            settings_submit_button.TabIndex = 4;
             settings_submit_button.Text = "Submit";
             settings_submit_button.UseCompatibleTextRendering = true;
             settings_submit_button.UseVisualStyleBackColor = false;
@@ -71,6 +74,7 @@
             // 
             // settings_sign_out_button
             // 
+            settings_sign_out_button.BackgroundImage = ((System.Drawing.Image)resources.GetObject("settings_sign_out_button.BackgroundImage"));
             settings_sign_out_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             settings_sign_out_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
             settings_sign_out_button.Location = new System.Drawing.Point(271, 364);
@@ -89,9 +93,10 @@
             settings_new_password_textbox.ForeColor = System.Drawing.SystemColors.WindowText;
             settings_new_password_textbox.Location = new System.Drawing.Point(280, 231);
             settings_new_password_textbox.Name = "settings_new_password_textbox";
+            settings_new_password_textbox.PasswordChar = '*';
             settings_new_password_textbox.PlaceholderText = "New Password";
             settings_new_password_textbox.Size = new System.Drawing.Size(142, 55);
-            settings_new_password_textbox.TabIndex = 4;
+            settings_new_password_textbox.TabIndex = 3;
             // 
             // settings_current_password_textbox
             // 
@@ -99,9 +104,10 @@
             settings_current_password_textbox.Font = new System.Drawing.Font("Segoe UI", 12F);
             settings_current_password_textbox.Location = new System.Drawing.Point(59, 231);
             settings_current_password_textbox.Name = "settings_current_password_textbox";
+            settings_current_password_textbox.PasswordChar = '*';
             settings_current_password_textbox.PlaceholderText = "Current Password";
             settings_current_password_textbox.Size = new System.Drawing.Size(165, 55);
-            settings_current_password_textbox.TabIndex = 3;
+            settings_current_password_textbox.TabIndex = 2;
             // 
             // settings_username_textbox
             // 
@@ -111,7 +117,7 @@
             settings_username_textbox.Name = "settings_username_textbox";
             settings_username_textbox.PlaceholderText = "Username";
             settings_username_textbox.Size = new System.Drawing.Size(133, 55);
-            settings_username_textbox.TabIndex = 2;
+            settings_username_textbox.TabIndex = 0;
             // 
             // settings_email_textbox
             // 
@@ -132,7 +138,7 @@
             settings_lbl.Location = new System.Drawing.Point(59, 46);
             settings_lbl.Name = "settings_lbl";
             settings_lbl.Size = new System.Drawing.Size(222, 72);
-            settings_lbl.TabIndex = 0;
+            settings_lbl.TabIndex = 6;
             settings_lbl.Text = "Settings";
             // 
             // Settings
@@ -140,6 +146,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Indigo;
+            BackgroundImage = ((System.Drawing.Image)resources.GetObject("$this.BackgroundImage"));
             ClientSize = new System.Drawing.Size(1262, 673);
             Controls.Add(panelSettings);
             ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -152,11 +159,11 @@
 
         #endregion
 
-        private Panel panelSettings;
-        private Label settings_lbl;
-        private TextBox settings_new_password_textbox;
-        private TextBox settings_current_password_textbox;
-        private TextBox settings_username_textbox;
+        private System.Windows.Forms.Panel panelSettings;
+        private System.Windows.Forms.Label settings_lbl;
+        private System.Windows.Forms.TextBox settings_new_password_textbox;
+        private System.Windows.Forms.TextBox settings_current_password_textbox;
+        private System.Windows.Forms.TextBox settings_username_textbox;
         private TextBox settings_email_textbox;
         private System.Windows.Forms.Button settings_sign_out_button;
         private System.Windows.Forms.Button settings_submit_button;

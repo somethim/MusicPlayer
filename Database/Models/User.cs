@@ -19,9 +19,9 @@ public class User
             throw new InvalidOperationException("Invalid password.");
 
         var (plainToken, encryptedToken) = TokenHandler.GenerateToken(Id.ToString());
-        Token = encryptedToken; // Store encrypted token in DB
+        Token = encryptedToken;
         await Update(dbContext);
-        await StoreTokenLocally(plainToken); // Store plain token locally
+        await StoreTokenLocally(plainToken);
 
         return plainToken;
     }
@@ -51,32 +51,21 @@ public class User
         return user;
     }
 
-    public static async Task<User> FindByToken(MusicPlayerContext dbContext, string token)
+    public static async Task<User> FindByToken(MusicPlayerContext dbContext, string plainToken)
     {
-        if (!TokenHandler.ValidateToken(token))
-            throw new InvalidOperationException("Token is invalid or expired.");
+        var hashedToken = TokenHandler.HashToken(plainToken);
+        var user = await dbContext.Users
+            .FirstOrDefaultAsync(u => u.Token == hashedToken);
 
-        return await dbContext.Users
-                   .FirstOrDefaultAsync(u => u.Token == token) ??
-               throw new InvalidOperationException("User not found.");
+        return user ?? throw new InvalidOperationException("User not found or token invalid.");
     }
+
 
     public static async Task<User> FindByUsernameOrEmail(MusicPlayerContext dbContext, string usernameOrEmail)
     {
         return await dbContext.Users
                    .FirstOrDefaultAsync(u => u.Username == usernameOrEmail || u.Email == usernameOrEmail) ??
                throw new InvalidOperationException("User not found.");
-    }
-
-    public static async Task<User> GetCurrentUser(MusicPlayerContext dbContext)
-    {
-        var storedToken = await GetStoredToken();
-        if (storedToken == null)
-            throw new InvalidOperationException("No user is currently logged in.");
-
-        if (TokenHandler.ValidateToken(storedToken)) return await FindByToken(dbContext, storedToken);
-        await ClearLocalToken();
-        throw new InvalidOperationException("Your session has expired. Please log in again.");
     }
 
     // --- Private Methods ---
@@ -116,7 +105,7 @@ public class User
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to store token locally: {ex.Message}");
+            Console.WriteLine(@$"Failed to store token locally: {ex.Message}");
         }
     }
 
@@ -132,7 +121,7 @@ public class User
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to clear local token: {ex.Message}");
+            Console.WriteLine(@$"Failed to clear local token: {ex.Message}");
         }
 
         return Task.CompletedTask;
@@ -150,7 +139,7 @@ public class User
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to retrieve stored token: {ex.Message}");
+            Console.WriteLine(@$"Failed to retrieve stored token: {ex.Message}");
         }
 
         return null;
