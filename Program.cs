@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicPlayer.database;
 
+
 namespace MusicPlayer;
 
 internal static class Program
@@ -26,12 +27,12 @@ internal static class Program
                 var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
                 services.AddDbContext<MusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
-                services.AddScoped<Settings>();
+                services.AddScoped<Music>();
             })
             .Build();
 
         ApplicationConfiguration.Initialize();
-        var settings = host.Services.GetRequiredService<Settings>();
+        var settings = host.Services.GetRequiredService<Music>();
         Application.Run(settings);
     }
 }

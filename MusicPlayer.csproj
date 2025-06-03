@@ -23,7 +23,6 @@
     <ItemGroup>
         <AdditionalFiles Include="Src\Auth.resx" />
         <AdditionalFiles Include="Src\Dashboard.resx" />
-        <AdditionalFiles Include="Src\Music.resx" />
     </ItemGroup>
 
     <ItemGroup>
