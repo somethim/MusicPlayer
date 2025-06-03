@@ -43,11 +43,20 @@
             songArtwork = new PictureBox();
             songTitle = new Label();
             songArtist = new Label();
+            progressBar = new ProgressBar();
+            playerPanel = new Panel();
+            playerArtwork = new PictureBox();
+            playerSong = new Label();
+            dashboardCurrentSongs = new Label();
+            likeButton = new Button();
+            playButton = new Button();
             ((System.ComponentModel.ISupportInitialize)profilePic).BeginInit();
             featuredPanel.SuspendLayout();
             songList.SuspendLayout();
             songPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)songArtwork).BeginInit();
+            playerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)playerArtwork).BeginInit();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -154,7 +163,7 @@
             songList.FlowDirection = FlowDirection.TopDown;
             songList.Location = new Point(20, 417);
             songList.Name = "songList";
-            songList.Size = new Size(511, 316);
+            songList.Size = new Size(511, 293);
             songList.TabIndex = 6;
             // 
             // songPanel
@@ -200,13 +209,96 @@
             songArtist.TabIndex = 2;
             songArtist.Text = "The Weeknd";
             // 
+            // progressBar
+            // 
+            progressBar.BackColor = Color.FromArgb(50, 50, 70);
+            progressBar.ForeColor = Color.DarkViolet;
+            progressBar.Location = new Point(17, 85);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(476, 18);
+            progressBar.TabIndex = 7;
+            progressBar.Value = 50;
+            // 
+            // playerPanel
+            // 
+            playerPanel.BackColor = Color.FromArgb(70, 70, 100);
+            playerPanel.Controls.Add(playButton);
+            playerPanel.Controls.Add(likeButton);
+            playerPanel.Controls.Add(dashboardCurrentSongs);
+            playerPanel.Controls.Add(playerSong);
+            playerPanel.Controls.Add(playerArtwork);
+            playerPanel.Controls.Add(progressBar);
+            playerPanel.Location = new Point(23, 752);
+            playerPanel.Name = "playerPanel";
+            playerPanel.Size = new Size(508, 106);
+            playerPanel.TabIndex = 1;
+            // 
+            // playerArtwork
+            // 
+            playerArtwork.BackColor = Color.Gray;
+            playerArtwork.Location = new Point(5, 3);
+            playerArtwork.Name = "playerArtwork";
+            playerArtwork.Size = new Size(93, 66);
+            playerArtwork.SizeMode = PictureBoxSizeMode.StretchImage;
+            playerArtwork.TabIndex = 8;
+            playerArtwork.TabStop = false;
+            // 
+            // playerSong
+            // 
+            playerSong.AutoSize = true;
+            playerSong.Font = new Font("Arial Narrow", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            playerSong.ForeColor = Color.White;
+            playerSong.Location = new Point(106, 40);
+            playerSong.Name = "playerSong";
+            playerSong.Size = new Size(260, 29);
+            playerSong.TabIndex = 9;
+            playerSong.Text = "The Kid LAROI,Justin Bieber";
+            // 
+            // dashboardCurrentSongs
+            // 
+            dashboardCurrentSongs.AutoSize = true;
+            dashboardCurrentSongs.BackColor = Color.FromArgb(50, 50, 70);
+            dashboardCurrentSongs.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dashboardCurrentSongs.ForeColor = Color.White;
+            dashboardCurrentSongs.Location = new Point(106, 3);
+            dashboardCurrentSongs.Name = "dashboardCurrentSongs";
+            dashboardCurrentSongs.Size = new Size(78, 35);
+            dashboardCurrentSongs.TabIndex = 10;
+            dashboardCurrentSongs.Text = "Stay";
+            // 
+            // likeButton
+            // 
+            likeButton.BackColor = Color.Transparent;
+            likeButton.FlatStyle = FlatStyle.Flat;
+            likeButton.ForeColor = Color.FromArgb(150, 100, 200);
+            likeButton.Location = new Point(461, 24);
+            likeButton.Name = "likeButton";
+            likeButton.Size = new Size(32, 45);
+            likeButton.TabIndex = 11;
+            likeButton.Text = "z";
+            likeButton.UseVisualStyleBackColor = false;
+            // 
+            // playButton
+            // 
+            playButton.BackColor = Color.Transparent;
+            playButton.FlatStyle = FlatStyle.Flat;
+            playButton.Font = new Font("Goudy Stout", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            playButton.ForeColor = Color.FromArgb(150, 100, 200);
+            playButton.Location = new Point(372, 24);
+            playButton.Name = "playButton";
+            playButton.Size = new Size(63, 44);
+            playButton.TabIndex = 12;
+            playButton.Text = "||";
+            playButton.UseVisualStyleBackColor = false;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 50);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(560, 745);
+            ClientSize = new Size(560, 870);
+            Controls.Add(playerPanel);
             Controls.Add(songList);
             Controls.Add(discoverLabel);
             Controls.Add(featuredPanel);
@@ -222,6 +314,9 @@
             songPanel.ResumeLayout(false);
             songPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)songArtwork).EndInit();
+            playerPanel.ResumeLayout(false);
+            playerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)playerArtwork).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,5 +337,12 @@
         private PictureBox songArtwork;
         private Label songArtist;
         private Label songTitle;
+        private ProgressBar progressBar;
+        private Panel playerPanel;
+        private Label playerSong;
+        private PictureBox playerArtwork;
+        private Label dashboardCurrentSongs;
+        private Button likeButton;
+        private Button playButton;
     }
 }
