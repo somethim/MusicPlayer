@@ -21,10 +21,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Src\Auth.resx"/>
-        <AdditionalFiles Include="Src\Dashboard.resx"/>
-        <AdditionalFiles Include="Src\Music.resx"/>
-        <AdditionalFiles Include="Src\Settings.resx"/>
+        <Compile Update="Src\Auth\SignUp.cs">
+            <SubType>Form</SubType>
+        </Compile>
     </ItemGroup>
 
 </Project>

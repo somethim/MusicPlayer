@@ -1,0 +1,141 @@
+﻿namespace MusicPlayer.Auth
+{
+    partial class SignIn
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            sign_up_redirect_label = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            sign_in_password_label = new System.Windows.Forms.Label();
+            sign_in_password_text_box = new System.Windows.Forms.TextBox();
+            sign_in_username_email_label = new System.Windows.Forms.Label();
+            sign_in_username_email_text_box = new System.Windows.Forms.TextBox();
+            sign_in_button = new System.Windows.Forms.Button();
+            SuspendLayout();
+            // 
+            // sign_up_redirect_label
+            // 
+            sign_up_redirect_label.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            sign_up_redirect_label.ForeColor = System.Drawing.SystemColors.WindowText;
+            sign_up_redirect_label.Location = new System.Drawing.Point(921, 438);
+            sign_up_redirect_label.Name = "sign_up_redirect_label";
+            sign_up_redirect_label.Size = new System.Drawing.Size(159, 60);
+            sign_up_redirect_label.TabIndex = 6;
+            sign_up_redirect_label.Text = "Sign Up";
+            sign_up_redirect_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            sign_up_redirect_label.Click += sign_up_redirect_label_Click;
+            // 
+            // label1
+            // 
+            label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(500, 443);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(415, 56);
+            label1.TabIndex = 5;
+            label1.Text = "Don\'t have an account?";
+            // 
+            // sign_in_password_label
+            // 
+            sign_in_password_label.Font = new System.Drawing.Font("Segoe UI", 12F);
+            sign_in_password_label.Location = new System.Drawing.Point(131, 246);
+            sign_in_password_label.Name = "sign_in_password_label";
+            sign_in_password_label.Size = new System.Drawing.Size(370, 56);
+            sign_in_password_label.TabIndex = 4;
+            sign_in_password_label.Text = "Password";
+            sign_in_password_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sign_in_password_text_box
+            // 
+            sign_in_password_text_box.Font = new System.Drawing.Font("Segoe UI", 12F);
+            sign_in_password_text_box.Location = new System.Drawing.Point(131, 326);
+            sign_in_password_text_box.Name = "sign_in_password_text_box";
+            sign_in_password_text_box.PasswordChar = '*';
+            sign_in_password_text_box.Size = new System.Drawing.Size(370, 55);
+            sign_in_password_text_box.TabIndex = 3;
+            // 
+            // sign_in_username_email_label
+            // 
+            sign_in_username_email_label.Font = new System.Drawing.Font("Segoe UI", 12F);
+            sign_in_username_email_label.Location = new System.Drawing.Point(131, 65);
+            sign_in_username_email_label.Name = "sign_in_username_email_label";
+            sign_in_username_email_label.Size = new System.Drawing.Size(370, 56);
+            sign_in_username_email_label.TabIndex = 2;
+            sign_in_username_email_label.Text = "Username or Email";
+            sign_in_username_email_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sign_in_username_email_text_box
+            // 
+            sign_in_username_email_text_box.Font = new System.Drawing.Font("Segoe UI", 12F);
+            sign_in_username_email_text_box.Location = new System.Drawing.Point(131, 145);
+            sign_in_username_email_text_box.Name = "sign_in_username_email_text_box";
+            sign_in_username_email_text_box.Size = new System.Drawing.Size(370, 55);
+            sign_in_username_email_text_box.TabIndex = 1;
+            // 
+            // sign_in_button
+            // 
+            sign_in_button.Font = new System.Drawing.Font("Segoe UI", 12F);
+            sign_in_button.Location = new System.Drawing.Point(208, 439);
+            sign_in_button.Name = "sign_in_button";
+            sign_in_button.Size = new System.Drawing.Size(133, 57);
+            sign_in_button.TabIndex = 0;
+            sign_in_button.Text = "Sign In";
+            sign_in_button.UseVisualStyleBackColor = true;
+            sign_in_button.Click += sign_in_button_Click;
+            // 
+            // SignIn
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
+            ClientSize = new System.Drawing.Size(1252, 632);
+            Controls.Add(sign_in_button);
+            Controls.Add(sign_in_username_email_text_box);
+            Controls.Add(sign_in_username_email_label);
+            Controls.Add(sign_in_password_text_box);
+            Controls.Add(sign_in_password_label);
+            Controls.Add(label1);
+            Controls.Add(sign_up_redirect_label);
+            Location = new System.Drawing.Point(34, 34);
+            Margin = new System.Windows.Forms.Padding(6);
+            Text = "Sign In";
+            Load += SignIn_Load;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        private System.Windows.Forms.Button sign_in_button;
+        private System.Windows.Forms.TextBox sign_in_username_email_text_box;
+        private System.Windows.Forms.Label sign_in_username_email_label;
+        private System.Windows.Forms.TextBox sign_in_password_text_box;
+        private System.Windows.Forms.Label sign_in_password_label;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sign_up_redirect_label;
+
+        #endregion
+    }
+}

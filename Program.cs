@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MusicPlayer.Auth;
 using MusicPlayer.database;
 
 namespace MusicPlayer;
@@ -26,12 +27,16 @@ internal static class Program
                 var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
                 services.AddDbContext<MusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
+
+                services.AddScoped<SignIn>();
                 services.AddScoped<Dashboard>();
+                services.AddScoped<Music>();
+                services.AddScoped<Settings>();
             })
             .Build();
 
         ApplicationConfiguration.Initialize();
-        var dashboard = host.Services.GetRequiredService<Dashboard>();
-        Application.Run(dashboard);
+        var auth = host.Services.GetRequiredService<SignIn>();
+        Application.Run(auth);
     }
 }
