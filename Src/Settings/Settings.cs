@@ -22,10 +22,10 @@ public partial class Settings : Form
     {
         try
         {
-            var email = settings_email_textbox.Text;
-            var username = settings_username_textbox.Text;
-            var currentPassword = settings_current_password_textbox.Text;
-            var newPassword = settings_new_password_textbox.Text;
+            var email = settings_email_text_box.Text;
+            var username = settings_username_text_box.Text;
+            var currentPassword = settings_current_password_text_box.Text;
+            var newPassword = settings_new_password_text_box.Text;
 
             if (string.IsNullOrEmpty(email) &&
                 string.IsNullOrEmpty(username) &&
