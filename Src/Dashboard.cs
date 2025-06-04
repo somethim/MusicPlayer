@@ -10,7 +10,6 @@ public partial class Dashboard : Form
     public Dashboard(MusicPlayerContext dbContext, User user)
     {
         _dbContext = dbContext;
-
         InitializeComponent();
     }
 }
