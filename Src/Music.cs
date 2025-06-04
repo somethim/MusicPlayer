@@ -30,11 +30,6 @@ public partial class Music : Form
         {
             MessageBox.Show(@"Please select a song to play.");
         }
-
-        private void music_listView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
     private void music_next_song_button_Click(object sender, EventArgs e)

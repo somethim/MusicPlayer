@@ -6,14 +6,13 @@ namespace MusicPlayer.Utils;
 
 public static class TokenHandler
 {
-    private static readonly Lazy<string> AppKey = new(() =>
+    private static readonly string AppKey;
+
+    static TokenHandler()
     {
-        Env.Load();
-        var key = Env.GetString("APP_KEY");
-        if (string.IsNullOrEmpty(key))
-            throw new InvalidOperationException("APP_KEY is not set in .env file");
-        return key;
-    });
+        AppKey = Env.GetString("APP_KEY")
+                 ?? throw new InvalidOperationException("APP_KEY is not set in the environment variables.");
+    }
 
     public static bool ValidateToken(string plainToken, string hashedToken)
     {
@@ -40,7 +39,7 @@ public static class TokenHandler
 
     public static string HashToken(string plainText)
     {
-        using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(AppKey.Value));
+        using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(AppKey));
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(plainText));
         return Convert.ToBase64String(hash);
     }

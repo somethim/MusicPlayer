@@ -1,4 +1,5 @@
 using DotNetEnv;
+using DotNetEnv.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,11 +19,13 @@ internal static class Program
             .ConfigureAppConfiguration((_, config) =>
             {
                 config.Sources.Clear();
-                config.AddEnvironmentVariables();
+                config.AddEnvironmentVariables()
+                    .AddJsonFile("appsettings.json", true)
+                    .AddDotNetEnv();
             })
-            .ConfigureServices((_, services) =>
+            .ConfigureServices((context, services) =>
             {
-                var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
+                var connectionString = context.Configuration["DATABASE_CONNECTION_STRING"];
                 services.AddDbContext<MusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
 
