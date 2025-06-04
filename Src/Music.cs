@@ -64,5 +64,10 @@ namespace MusicPlayer
             string song = songs[index];
             MessageBox.Show($"Now playing: {song}");
         }
+
+        private void music_listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

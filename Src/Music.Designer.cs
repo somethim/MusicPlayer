@@ -97,6 +97,7 @@
             music_listView.Size = new Size(1048, 436);
             music_listView.TabIndex = 0;
             music_listView.UseCompatibleStateImageBehavior = false;
+            music_listView.SelectedIndexChanged += music_listView_SelectedIndexChanged;
             // 
             // music_play_button
             // 
