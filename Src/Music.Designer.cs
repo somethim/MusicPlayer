@@ -92,12 +92,12 @@
             // music_listView
             // 
             music_listView.BackColor = Color.FromArgb(220, 220, 240);
-            music_listView.Location = new Point(43, 35);
+            music_listView.Location = new Point(376, 35);
             music_listView.Name = "music_listView";
-            music_listView.Size = new Size(1048, 436);
+            music_listView.Size = new Size(715, 436);
             music_listView.TabIndex = 0;
             music_listView.UseCompatibleStateImageBehavior = false;
-            //
+            // 
             // music_play_button
             // 
             music_play_button.BackColor = Color.Transparent;
