@@ -8,7 +8,6 @@ namespace MusicPlayer.Utils;
 public static class TokenHandler
 {
     private static readonly string AppKey = Env.GetString("APP_KEY");
-
     public static readonly JsonSerializerOptions JsonOptions = new()
     {
         WriteIndented = true
@@ -22,17 +21,10 @@ public static class TokenHandler
         if (storedToken == null || tokenData == null || string.IsNullOrEmpty(storedToken.Token))
             return false;
 
-        try
-        {
-            if (storedToken.Token != tokenData.Token)
-                return false;
-
-            return DateTime.UtcNow <= tokenData.At.AddDays(7);
-        }
-        catch (Exception)
-        {
+        if (storedToken.Token != tokenData.Token)
             return false;
-        }
+
+        return DateTime.UtcNow <= tokenData.At.AddDays(7);
     }
 
     public static (string PlainToken, string EncryptedToken, string HashedToken, TokenData TokenData) GenerateToken()

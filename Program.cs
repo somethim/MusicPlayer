@@ -41,10 +41,11 @@ internal static class Program
         try
         {
             var dbContext = host.Services.GetRequiredService<MusicPlayerContext>();
-            var token = TokenHandler.GetStoredToken();
+            var token = TokenHandler.GetStoredToken() ?? throw new InvalidOperationException("No token found in local storage.");
+            if (token == null || string.IsNullOrEmpty(token.Token))
+                throw new InvalidOperationException("No valid token found in local storage.");
 
-            if (token == null) throw new InvalidOperationException("No token found in local storage.");
-            var user = User.FindByToken(dbContext);
+            var user = User.FindByToken(dbContext, token);
 
             if (!TokenHandler.ValidateToken(user.EncryptedToken ??
                                             throw new InvalidOperationException("User token is null.")))

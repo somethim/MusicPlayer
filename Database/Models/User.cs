@@ -52,22 +52,14 @@ public class User
         return user;
     }
 
-    public static User FindByToken(MusicPlayerContext dbContext)
+    public static User FindByToken(MusicPlayerContext dbContext, TokenHandler.TokenData storedToken)
     {
-        var storedToken = TokenHandler.GetStoredToken();
         if (storedToken == null || string.IsNullOrEmpty(storedToken.Token))
             throw new InvalidOperationException("No valid token found in local storage.");
 
-        var tokenJson = JsonSerializer.Serialize(storedToken, TokenHandler.JsonOptions);
+        var tokenJson = JsonSerializer.Serialize(storedToken, TokenHandler.JsonOptions) ?? throw new Exception("Token is null");
         var hashedToken = TokenHandler.HashToken(tokenJson);
-        Console.WriteLine(hashedToken);
-
-        var user = dbContext.Users.FirstOrDefault(u => u.HashedToken == hashedToken);
-
-        if (user == null)
-            throw new InvalidOperationException("User not found for the given token.");
-
-        return user;
+        return dbContext.Users.FirstOrDefault(u => u.HashedToken == hashedToken) ?? throw new InvalidOperationException("User not found for the given token.");
     }
 
     public static async Task<User> FindByUsernameOrEmail(MusicPlayerContext dbContext, string usernameOrEmail)
