@@ -1,68 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿namespace MusicPlayer;
 
-namespace MusicPlayer
+public partial class Music : Form
 {
-    public partial class Music : Form
+    private readonly List<string> _songs = ["Song 1", "Song 2", "Song 3"];
+    private int _currentSongIndex = -1;
+
+    public Music()
     {
-        private List<string> songs = new List<string> { "Song 1", "Song 2", "Song 3" };
-        private int currentSongIndex = -1;
+        InitializeComponent();
+    }
 
-        public Music()
-        {
-            InitializeComponent();
-        }
+    private void Music_Load(object sender, EventArgs e)
+    {
+        foreach (var song in _songs) music_listView.Items.Add(song);
+    }
 
-        private void Music_Load(object sender, EventArgs e)
+    private void music_play_button_Click(object sender, EventArgs e)
+    {
+        if (music_listView.SelectedIndices.Count > 0)
         {
-            foreach (var song in songs)
-            {
-                music_listView.Items.Add(song);
-            }
+            _currentSongIndex = music_listView.SelectedIndices[0];
+            PlaySong(_currentSongIndex);
         }
+        else if (_currentSongIndex != -1)
+        {
+            PlaySong(_currentSongIndex);
+        }
+        else
+        {
+            MessageBox.Show(@"Please select a song to play.");
+        }
+    }
 
-        private void music_play_button_Click(object sender, EventArgs e)
-        {
-            if (music_listView.SelectedIndices.Count > 0)
-            {
-                currentSongIndex = music_listView.SelectedIndices[0];
-                PlaySong(currentSongIndex);
-            }
-            else if (currentSongIndex != -1)
-            {
-                PlaySong(currentSongIndex);
-            }
-            else
-            {
-                MessageBox.Show("Please select a song to play.");
-            }
-        }
+    private void music_next_song_button_Click(object sender, EventArgs e)
+    {
+        if (_currentSongIndex >= _songs.Count - 1) return;
+        _currentSongIndex++;
+        music_listView.Items[_currentSongIndex].Selected = true;
+        PlaySong(_currentSongIndex);
+    }
 
-        private void music_next_song_button_Click(object sender, EventArgs e)
-        {
-            if (currentSongIndex < songs.Count - 1)
-            {
-                currentSongIndex++;
-                music_listView.Items[currentSongIndex].Selected = true;
-                PlaySong(currentSongIndex);
-            }
-        }
+    private void music_previous_song_button_Click(object sender, EventArgs e)
+    {
+        if (_currentSongIndex <= 0) return;
+        _currentSongIndex--;
+        music_listView.Items[_currentSongIndex].Selected = true;
+        PlaySong(_currentSongIndex);
+    }
 
-        private void music_previous_song_button_Click(object sender, EventArgs e)
-        {
-            if (currentSongIndex > 0)
-            {
-                currentSongIndex--;
-                music_listView.Items[currentSongIndex].Selected = true;
-                PlaySong(currentSongIndex);
-            }
-        }
-
-        private void PlaySong(int index)
-        {
-            string song = songs[index];
-            MessageBox.Show($"Now playing: {song}");
-        }
+    private void PlaySong(int index)
+    {
+        var song = _songs[index];
+        MessageBox.Show(@$"Now playing: {song}");
     }
 }

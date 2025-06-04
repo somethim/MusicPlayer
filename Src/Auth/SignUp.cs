@@ -13,22 +13,6 @@ public partial class SignUp : Form
         InitializeComponent();
     }
 
-    private async void SignUp_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            var token = await User.GetStoredToken();
-            if (token is null) return;
-            var dashboard = new Dashboard(_dbContext, await User.FindByToken(_dbContext, token));
-            dashboard.Show();
-            Hide();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@$"Error retrieving token: {ex.Message}");
-        }
-    }
-
     private async void sign_up_button_Click(object sender, EventArgs e)
     {
         try

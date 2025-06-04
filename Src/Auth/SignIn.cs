@@ -10,23 +10,17 @@ public partial class SignIn : Form
     public SignIn(MusicPlayerContext dbContext)
     {
         _dbContext = dbContext;
+        CheckLogin();
         InitializeComponent();
     }
 
-    private async void SignIn_Load(object sender, EventArgs e)
+    private void CheckLogin()
     {
-        try
-        {
-            var token = await User.GetStoredToken();
-            if (token is null) return;
-            var dashboard = new Dashboard(_dbContext, await User.FindByToken(_dbContext, token));
-            dashboard.Show();
-            Hide();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@$"Error retrieving token: {ex.Message}");
-        }
+        var plainToken = User.GetStoredToken();
+        if (plainToken is null) return;
+        var dashboard = new Dashboard(_dbContext, User.FindByToken(_dbContext, plainToken));
+        dashboard.Show();
+        Hide();
     }
 
     private async void sign_in_button_Click(object sender, EventArgs e)

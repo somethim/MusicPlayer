@@ -118,7 +118,6 @@
             Location = new System.Drawing.Point(34, 34);
             Margin = new System.Windows.Forms.Padding(6);
             Text = "Sign In";
-            Load += SignIn_Load;
             ResumeLayout(false);
             PerformLayout();
         }

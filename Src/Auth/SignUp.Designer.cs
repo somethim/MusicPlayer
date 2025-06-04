@@ -124,7 +124,6 @@ partial class SignUp
         Controls.Add(sign_up_password_text_box);
         Controls.Add(sign_up_email_text_box);
         Location = new System.Drawing.Point(34, 34);
-        Load += SignUp_Load;
         ResumeLayout(false);
         PerformLayout();
     }

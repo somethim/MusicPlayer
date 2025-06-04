@@ -51,11 +51,11 @@ public class User
         return user;
     }
 
-    public static async Task<User> FindByToken(MusicPlayerContext dbContext, string plainToken)
+    public static User FindByToken(MusicPlayerContext dbContext, string plainToken)
     {
         var hashedToken = TokenHandler.HashToken(plainToken);
-        var user = await dbContext.Users
-            .FirstOrDefaultAsync(u => u.Token == hashedToken);
+        var user = dbContext.Users
+            .FirstOrDefault(u => u.Token == hashedToken);
 
         return user ?? throw new InvalidOperationException("User not found or token invalid.");
     }
@@ -127,7 +127,7 @@ public class User
         return Task.CompletedTask;
     }
 
-    public static async Task<string?> GetStoredToken()
+    public static string? GetStoredToken()
     {
         try
         {
@@ -135,7 +135,7 @@ public class User
             var tokenFilePath = Path.Combine(appDataPath, "MusicPlayer", "user_token.txt");
 
             if (File.Exists(tokenFilePath))
-                return await File.ReadAllTextAsync(tokenFilePath);
+                return File.ReadAllText(tokenFilePath);
         }
         catch (Exception ex)
         {
