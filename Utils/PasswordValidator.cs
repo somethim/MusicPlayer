@@ -4,7 +4,7 @@ using MusicPlayer.database.Models;
 
 namespace MusicPlayer.Utils;
 
-public static class Password
+public static class PasswordValidator
 {
     public static bool CheckPassword(User user, string providedPassword)
     {

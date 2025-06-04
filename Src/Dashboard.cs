@@ -1,9 +1,16 @@
+using MusicPlayer.database;
+using MusicPlayer.database.Models;
+
 namespace MusicPlayer;
 
 public partial class Dashboard : Form
 {
-    public Dashboard()
+    private readonly MusicPlayerContext _dbContext;
+
+    public Dashboard(MusicPlayerContext dbContext, User user)
     {
+        _dbContext = dbContext;
+
         InitializeComponent();
     }
 }
