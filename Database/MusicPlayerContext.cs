@@ -23,8 +23,10 @@ public class MusicPlayerContext(DbContextOptions<MusicPlayerContext> options) : 
         modelBuilder.Entity<User>().Property(u => u.Id).HasColumnName("_id").ValueGeneratedOnAdd();
         modelBuilder.Entity<User>().Property(u => u.Email).HasColumnName("email");
         modelBuilder.Entity<User>().Property(u => u.Password).HasColumnName("password");
-        modelBuilder.Entity<User>().Property(u => u.Token).HasColumnName("token").HasDefaultValue(null);
         modelBuilder.Entity<User>().Property(u => u.Username).HasColumnName("username");
+        modelBuilder.Entity<User>().Property(u => u.EncryptedToken).HasColumnName("encrypted_token")
+            .HasDefaultValue(null);
+        modelBuilder.Entity<User>().Property(u => u.HashedToken).HasColumnName("hashed_token").HasDefaultValue(null);
 
         // Playlist
         modelBuilder.Entity<Playlist>().ToTable("playlist");

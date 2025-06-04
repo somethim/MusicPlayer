@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 using MusicPlayer.Utils;
 
 namespace MusicPlayer.database.Models;
@@ -9,28 +10,28 @@ public class User
     public string Email { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
-    public string? Token { get; set; }
-
-    // --- Public Methods ---
+    public string? EncryptedToken { get; set; }
+    public string? HashedToken { get; set; }
 
     public async Task<string> Login(MusicPlayerContext dbContext, string password)
     {
         if (!PasswordValidator.CheckPassword(this, password))
             throw new InvalidOperationException("Invalid password.");
 
-        var (plainToken, encryptedToken) = TokenHandler.GenerateToken(Id.ToString());
-        Token = encryptedToken;
+        var (plainToken, encryptedToken, hashedToken, tokenData) = TokenHandler.GenerateToken();
+        EncryptedToken = encryptedToken;
+        HashedToken = hashedToken;
         await Update(dbContext);
-        await StoreTokenLocally(plainToken);
+        await TokenHandler.StoreTokenLocally(tokenData);
 
         return plainToken;
     }
 
     public async Task Logout(MusicPlayerContext dbContext)
     {
-        Token = null;
+        EncryptedToken = null;
         await Update(dbContext);
-        await ClearLocalToken();
+        TokenHandler.ClearLocalToken();
     }
 
     public async Task Update(MusicPlayerContext dbContext)
@@ -51,15 +52,23 @@ public class User
         return user;
     }
 
-    public static User FindByToken(MusicPlayerContext dbContext, string plainToken)
+    public static User FindByToken(MusicPlayerContext dbContext)
     {
-        var hashedToken = TokenHandler.HashToken(plainToken);
-        var user = dbContext.Users
-            .FirstOrDefault(u => u.Token == hashedToken);
+        var storedToken = TokenHandler.GetStoredToken();
+        if (storedToken == null || string.IsNullOrEmpty(storedToken.Token))
+            throw new InvalidOperationException("No valid token found in local storage.");
 
-        return user ?? throw new InvalidOperationException("User not found or token invalid.");
+        var tokenJson = JsonSerializer.Serialize(storedToken, TokenHandler.JsonOptions);
+        var hashedToken = TokenHandler.HashToken(tokenJson);
+        Console.WriteLine(hashedToken);
+
+        var user = dbContext.Users.FirstOrDefault(u => u.HashedToken == hashedToken);
+
+        if (user == null)
+            throw new InvalidOperationException("User not found for the given token.");
+
+        return user;
     }
-
 
     public static async Task<User> FindByUsernameOrEmail(MusicPlayerContext dbContext, string usernameOrEmail)
     {
@@ -67,8 +76,6 @@ public class User
                    .FirstOrDefaultAsync(u => u.Username == usernameOrEmail || u.Email == usernameOrEmail) ??
                throw new InvalidOperationException("User not found.");
     }
-
-    // --- Private Methods ---
 
     private static async Task<User> Create(MusicPlayerContext dbContext, string username, string email, string password)
     {
@@ -91,57 +98,5 @@ public class User
     {
         return await dbContext.Users.AnyAsync(u =>
             u.Username == username || u.Email == email);
-    }
-
-    private static async Task StoreTokenLocally(string token)
-    {
-        try
-        {
-            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var tokenFilePath = Path.Combine(appDataPath, "MusicPlayer", "user_token.txt");
-
-            Directory.CreateDirectory(Path.GetDirectoryName(tokenFilePath)!);
-            await File.WriteAllTextAsync(tokenFilePath, token);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@$"Failed to store token locally: {ex.Message}");
-        }
-    }
-
-    private static Task ClearLocalToken()
-    {
-        try
-        {
-            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var tokenFilePath = Path.Combine(appDataPath, "MusicPlayer", "user_token.txt");
-
-            if (File.Exists(tokenFilePath))
-                File.Delete(tokenFilePath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@$"Failed to clear local token: {ex.Message}");
-        }
-
-        return Task.CompletedTask;
-    }
-
-    public static string? GetStoredToken()
-    {
-        try
-        {
-            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var tokenFilePath = Path.Combine(appDataPath, "MusicPlayer", "user_token.txt");
-
-            if (File.Exists(tokenFilePath))
-                return File.ReadAllText(tokenFilePath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@$"Failed to retrieve stored token: {ex.Message}");
-        }
-
-        return null;
     }
 }
