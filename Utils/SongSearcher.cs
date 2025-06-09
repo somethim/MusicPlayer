@@ -5,7 +5,7 @@ using MusicPlayer.database.Models;
 
 namespace MusicPlayer.Utils;
 
-public sealed class SongSearcher : IDisposable
+public class SongSearcher : IDisposable
 {
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
