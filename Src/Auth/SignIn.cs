@@ -5,9 +5,9 @@ namespace MusicPlayer.Auth;
 
 public partial class SignIn : Form
 {
-    private readonly MusicPlayerContext _dbContext;
+    private readonly RemoteMusicPlayerContext _dbContext;
 
-    public SignIn(MusicPlayerContext dbContext)
+    public SignIn(RemoteMusicPlayerContext dbContext)
     {
         _dbContext = dbContext;
         InitializeComponent();
@@ -27,7 +27,7 @@ public partial class SignIn : Form
                        ?? throw new InvalidOperationException("User not found.");
 
             await user.Login(_dbContext, password);
-            var dashboard = new Dashboard(_dbContext, user);
+            var dashboard = new Dashboard();
             dashboard.Show();
             Hide();
         }

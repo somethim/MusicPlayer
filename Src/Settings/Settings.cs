@@ -8,10 +8,10 @@ namespace MusicPlayer.Settings;
 
 public partial class Settings : Form
 {
-    private readonly MusicPlayerContext _dbContext;
+    private readonly RemoteMusicPlayerContext _dbContext;
     private readonly User _user;
 
-    public Settings(MusicPlayerContext dbContext, User user)
+    public Settings(RemoteMusicPlayerContext dbContext, User user)
     {
         _dbContext = dbContext;
         _user = user;

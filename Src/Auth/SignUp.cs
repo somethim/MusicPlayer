@@ -5,9 +5,9 @@ namespace MusicPlayer.Auth;
 
 public partial class SignUp : Form
 {
-    private readonly MusicPlayerContext _dbContext;
+    private readonly RemoteMusicPlayerContext _dbContext;
 
-    public SignUp(MusicPlayerContext dbContext)
+    public SignUp(RemoteMusicPlayerContext dbContext)
     {
         _dbContext = dbContext;
         InitializeComponent();
@@ -27,8 +27,9 @@ public partial class SignUp : Form
                 throw new InvalidOperationException("Username, Email, and Password cannot be empty.");
             if (password != confirmPassword) throw new InvalidOperationException("Passwords do not match.");
 
-            var user = await User.Register(_dbContext, username, email, password);
-            var dashboard = new Dashboard(_dbContext, user);
+            await User.Register(_dbContext, username, email, password);
+
+            var dashboard = new Dashboard();
             dashboard.Show();
             Hide();
         }

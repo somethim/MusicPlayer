@@ -13,7 +13,7 @@ public class User
     public string? EncryptedToken { get; set; }
     public string? HashedToken { get; set; }
 
-    public async Task<string> Login(MusicPlayerContext dbContext, string password)
+    public async Task<string> Login(RemoteMusicPlayerContext dbContext, string password)
     {
         if (!PasswordValidator.CheckPassword(this, password))
             throw new InvalidOperationException("Invalid password.");
@@ -27,20 +27,20 @@ public class User
         return plainToken;
     }
 
-    public async Task Logout(MusicPlayerContext dbContext)
+    public async Task Logout(RemoteMusicPlayerContext dbContext)
     {
         EncryptedToken = null;
         await Update(dbContext);
         TokenHandler.ClearLocalToken();
     }
 
-    public async Task Update(MusicPlayerContext dbContext)
+    public async Task Update(RemoteMusicPlayerContext dbContext)
     {
         dbContext.Users.Update(this);
         await dbContext.SaveChangesAsync();
     }
 
-    public static async Task<User> Register(MusicPlayerContext dbContext, string username, string email,
+    public static async Task Register(RemoteMusicPlayerContext dbContext, string username, string email,
         string password)
     {
         var user = await Create(dbContext, username, email, password);
@@ -48,28 +48,29 @@ public class User
 
         if (token == null)
             throw new InvalidOperationException("Failed to login after register.");
-
-        return user;
     }
 
-    public static User FindByToken(MusicPlayerContext dbContext, TokenHandler.TokenData storedToken)
+    public static User FindByToken(RemoteMusicPlayerContext dbContext, TokenHandler.TokenData storedToken)
     {
         if (storedToken == null || string.IsNullOrEmpty(storedToken.Token))
             throw new InvalidOperationException("No valid token found in local storage.");
 
-        var tokenJson = JsonSerializer.Serialize(storedToken, TokenHandler.JsonOptions) ?? throw new Exception("Token is null");
+        var tokenJson = JsonSerializer.Serialize(storedToken, TokenHandler.JsonOptions) ??
+                        throw new Exception("Token is null");
         var hashedToken = TokenHandler.HashToken(tokenJson);
-        return dbContext.Users.FirstOrDefault(u => u.HashedToken == hashedToken) ?? throw new InvalidOperationException("User not found for the given token.");
+        return dbContext.Users.FirstOrDefault(u => u.HashedToken == hashedToken) ??
+               throw new InvalidOperationException("User not found for the given token.");
     }
 
-    public static async Task<User> FindByUsernameOrEmail(MusicPlayerContext dbContext, string usernameOrEmail)
+    public static async Task<User> FindByUsernameOrEmail(RemoteMusicPlayerContext dbContext, string usernameOrEmail)
     {
         return await dbContext.Users
                    .FirstOrDefaultAsync(u => u.Username == usernameOrEmail || u.Email == usernameOrEmail) ??
                throw new InvalidOperationException("User not found.");
     }
 
-    private static async Task<User> Create(MusicPlayerContext dbContext, string username, string email, string password)
+    private static async Task<User> Create(RemoteMusicPlayerContext dbContext, string username, string email,
+        string password)
     {
         if (await Exists(dbContext, username, email))
             throw new InvalidOperationException("User with this username or email already exists.");
@@ -86,7 +87,7 @@ public class User
         return user;
     }
 
-    private static async Task<bool> Exists(MusicPlayerContext dbContext, string username, string email)
+    private static async Task<bool> Exists(RemoteMusicPlayerContext dbContext, string username, string email)
     {
         return await dbContext.Users.AnyAsync(u =>
             u.Username == username || u.Email == email);

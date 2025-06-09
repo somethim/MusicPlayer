@@ -32,10 +32,10 @@
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(514, 231);
-            Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            Margin = new System.Windows.Forms.Padding(1);
             Text = "Form1";
             ResumeLayout(false);
         }

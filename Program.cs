@@ -28,8 +28,11 @@ internal static class Program
             .ConfigureServices((context, services) =>
             {
                 var connectionString = context.Configuration["DATABASE_CONNECTION_STRING"];
-                services.AddDbContext<MusicPlayerContext>(options =>
+                services.AddDbContext<RemoteMusicPlayerContext>(options =>
                     options.UseNpgsql(connectionString));
+
+                services.AddDbContext<LocalMusicPlayerContext>(options =>
+                    options.UseSqlite("Data Source=local_music_player.db"));
 
                 services.AddScoped<SignIn>();
             })
@@ -37,11 +40,11 @@ internal static class Program
 
         ApplicationConfiguration.Initialize();
 
-
         try
         {
-            var dbContext = host.Services.GetRequiredService<MusicPlayerContext>();
-            var token = TokenHandler.GetStoredToken() ?? throw new InvalidOperationException("No token found in local storage.");
+            var dbContext = host.Services.GetRequiredService<RemoteMusicPlayerContext>();
+            var token = TokenHandler.GetStoredToken() ??
+                        throw new InvalidOperationException("No token found in local storage.");
             if (token == null || string.IsNullOrEmpty(token.Token))
                 throw new InvalidOperationException("No valid token found in local storage.");
 
@@ -51,11 +54,11 @@ internal static class Program
                                             throw new InvalidOperationException("User token is null.")))
                 throw new InvalidOperationException("Invalid or expired token.");
 
-            Application.Run(new Dashboard(dbContext, user));
+            // var localDbContext = host.Services.GetRequiredService<LocalMusicPlayerContext>();
+            Application.Run(new Dashboard());
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Console.WriteLine(ex);
             Application.Run(host.Services.GetRequiredService<SignIn>());
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer
+﻿namespace MusicPlayer.Music
 {
     partial class Music
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Music));
             music_playlist_lbl = new Label();
             music_playlist_elements_panel = new Panel();
             pictureBox2 = new PictureBox();
@@ -51,99 +50,104 @@
             music_playlist_lbl.BackColor = Color.Transparent;
             music_playlist_lbl.Font = new Font("Segoe UI", 18F);
             music_playlist_lbl.ForeColor = SystemColors.ButtonHighlight;
-            music_playlist_lbl.Location = new Point(45, 9);
+            music_playlist_lbl.Location = new Point(84, 17);
+            music_playlist_lbl.Margin = new Padding(6, 0, 6, 0);
             music_playlist_lbl.Name = "music_playlist_lbl";
-            music_playlist_lbl.Size = new Size(176, 41);
+            music_playlist_lbl.Size = new Size(315, 72);
             music_playlist_lbl.TabIndex = 0;
             music_playlist_lbl.Text = "Your Playlist";
             // 
             // music_playlist_elements_panel
             // 
-            music_playlist_elements_panel.BackgroundImage = (Image)resources.GetObject("music_playlist_elements_panel.BackgroundImage");
             music_playlist_elements_panel.Controls.Add(pictureBox2);
             music_playlist_elements_panel.Controls.Add(pictureBox1);
             music_playlist_elements_panel.Controls.Add(music_listView);
-            music_playlist_elements_panel.Location = new Point(68, 58);
+            music_playlist_elements_panel.Location = new Point(128, 107);
+            music_playlist_elements_panel.Margin = new Padding(6);
             music_playlist_elements_panel.Name = "music_playlist_elements_panel";
-            music_playlist_elements_panel.Size = new Size(1138, 507);
+            music_playlist_elements_panel.Size = new Size(2134, 938);
             music_playlist_elements_panel.TabIndex = 1;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(85, 225);
+            pictureBox2.Location = new Point(159, 416);
+            pictureBox2.Margin = new Padding(6);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(192, 175);
+            pictureBox2.Size = new Size(360, 324);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.Location = new Point(-22, -42);
+            pictureBox1.Location = new Point(-41, -78);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(398, 546);
+            pictureBox1.Size = new Size(746, 1010);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // music_listView
             // 
             music_listView.BackColor = Color.FromArgb(220, 220, 240);
-            music_listView.Location = new Point(376, 35);
+            music_listView.Location = new Point(705, 65);
+            music_listView.Margin = new Padding(6);
             music_listView.Name = "music_listView";
-            music_listView.Size = new Size(715, 436);
+            music_listView.Size = new Size(1337, 803);
             music_listView.TabIndex = 0;
             music_listView.UseCompatibleStateImageBehavior = false;
             // 
             // music_play_button
             // 
             music_play_button.BackColor = Color.Transparent;
-            music_play_button.BackgroundImage = (Image)resources.GetObject("music_play_button.BackgroundImage");
             music_play_button.BackgroundImageLayout = ImageLayout.Stretch;
-            music_play_button.Location = new Point(742, 571);
+            music_play_button.Location = new Point(1391, 1056);
+            music_play_button.Margin = new Padding(6);
             music_play_button.Name = "music_play_button";
-            music_play_button.Size = new Size(113, 110);
+            music_play_button.Size = new Size(212, 204);
             music_play_button.TabIndex = 3;
             music_play_button.TabStop = false;
+            music_play_button.Click += music_play_button_Click;
             // 
             // music_next_song_button
             // 
             music_next_song_button.BackColor = Color.Transparent;
-            music_next_song_button.BackgroundImage = (Image)resources.GetObject("music_next_song_button.BackgroundImage");
             music_next_song_button.BackgroundImageLayout = ImageLayout.Stretch;
-            music_next_song_button.Location = new Point(879, 571);
+            music_next_song_button.Location = new Point(1648, 1056);
+            music_next_song_button.Margin = new Padding(6);
             music_next_song_button.Name = "music_next_song_button";
-            music_next_song_button.Size = new Size(113, 110);
+            music_next_song_button.Size = new Size(212, 204);
             music_next_song_button.TabIndex = 4;
             music_next_song_button.TabStop = false;
+            music_next_song_button.Click += music_next_song_button_Click;
             // 
             // music_previous_song_button
             // 
             music_previous_song_button.BackColor = Color.Transparent;
-            music_previous_song_button.BackgroundImage = (Image)resources.GetObject("music_previous_song_button.BackgroundImage");
             music_previous_song_button.BackgroundImageLayout = ImageLayout.Stretch;
-            music_previous_song_button.Location = new Point(597, 571);
+            music_previous_song_button.Location = new Point(1119, 1056);
+            music_previous_song_button.Margin = new Padding(6);
             music_previous_song_button.Name = "music_previous_song_button";
-            music_previous_song_button.Size = new Size(113, 110);
+            music_previous_song_button.Size = new Size(212, 204);
             music_previous_song_button.TabIndex = 4;
             music_previous_song_button.TabStop = false;
+            music_previous_song_button.Click += music_previous_song_button_Click;
             // 
             // Music
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 50);
-            ClientSize = new Size(1262, 673);
+            ClientSize = new Size(2366, 1245);
             Controls.Add(music_previous_song_button);
             Controls.Add(music_next_song_button);
             Controls.Add(music_play_button);
             Controls.Add(music_playlist_elements_panel);
             Controls.Add(music_playlist_lbl);
+            Margin = new Padding(6);
             Name = "Music";
-            Load += Music_Load;
             music_playlist_elements_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
