@@ -31,6 +31,7 @@ partial class SignUp
     /// </summary>
     private void InitializeComponent()
     {
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(SignUp));
         sign_up_email_text_box = new TextBox();
         sign_up_password_text_box = new TextBox();
         sign_up_username_text_box = new TextBox();
@@ -38,13 +39,15 @@ partial class SignUp
         sign_up_button = new Button();
         label1 = new Label();
         sign_in_redirect_label = new Label();
+        panel1 = new Panel();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // sign_up_email_text_box
         // 
         sign_up_email_text_box.Font = new Font("Segoe UI", 12F);
-        sign_up_email_text_box.Location = new Point(67, 48);
-        sign_up_email_text_box.Margin = new Padding(2, 2, 2, 2);
+        sign_up_email_text_box.Location = new Point(92, 79);
+        sign_up_email_text_box.Margin = new Padding(2);
         sign_up_email_text_box.Name = "sign_up_email_text_box";
         sign_up_email_text_box.PlaceholderText = "Email";
         sign_up_email_text_box.Size = new Size(199, 34);
@@ -53,8 +56,8 @@ partial class SignUp
         // sign_up_password_text_box
         // 
         sign_up_password_text_box.Font = new Font("Segoe UI", 12F);
-        sign_up_password_text_box.Location = new Point(67, 136);
-        sign_up_password_text_box.Margin = new Padding(2, 2, 2, 2);
+        sign_up_password_text_box.Location = new Point(92, 162);
+        sign_up_password_text_box.Margin = new Padding(2);
         sign_up_password_text_box.Name = "sign_up_password_text_box";
         sign_up_password_text_box.PasswordChar = '*';
         sign_up_password_text_box.PlaceholderText = "Password";
@@ -64,8 +67,8 @@ partial class SignUp
         // sign_up_username_text_box
         // 
         sign_up_username_text_box.Font = new Font("Segoe UI", 12F);
-        sign_up_username_text_box.Location = new Point(67, 90);
-        sign_up_username_text_box.Margin = new Padding(2, 2, 2, 2);
+        sign_up_username_text_box.Location = new Point(368, 79);
+        sign_up_username_text_box.Margin = new Padding(2);
         sign_up_username_text_box.Name = "sign_up_username_text_box";
         sign_up_username_text_box.PlaceholderText = "Username";
         sign_up_username_text_box.Size = new Size(199, 34);
@@ -74,8 +77,8 @@ partial class SignUp
         // sign_up_confirm_password_text_box
         // 
         sign_up_confirm_password_text_box.Font = new Font("Segoe UI", 12F);
-        sign_up_confirm_password_text_box.Location = new Point(67, 178);
-        sign_up_confirm_password_text_box.Margin = new Padding(2, 2, 2, 2);
+        sign_up_confirm_password_text_box.Location = new Point(368, 162);
+        sign_up_confirm_password_text_box.Margin = new Padding(2);
         sign_up_confirm_password_text_box.Name = "sign_up_confirm_password_text_box";
         sign_up_confirm_password_text_box.PasswordChar = '*';
         sign_up_confirm_password_text_box.PlaceholderText = "Confirm Password";
@@ -84,11 +87,12 @@ partial class SignUp
         // 
         // sign_up_button
         // 
+        sign_up_button.BackgroundImage = (Image)resources.GetObject("sign_up_button.BackgroundImage");
         sign_up_button.Font = new Font("Segoe UI", 12F);
-        sign_up_button.Location = new Point(67, 245);
-        sign_up_button.Margin = new Padding(2, 2, 2, 2);
+        sign_up_button.Location = new Point(92, 257);
+        sign_up_button.Margin = new Padding(2);
         sign_up_button.Name = "sign_up_button";
-        sign_up_button.Size = new Size(71, 31);
+        sign_up_button.Size = new Size(112, 52);
         sign_up_button.TabIndex = 4;
         sign_up_button.Text = "Sign Up";
         sign_up_button.UseVisualStyleBackColor = true;
@@ -117,24 +121,35 @@ partial class SignUp
         sign_in_redirect_label.Text = "Sign In";
         sign_in_redirect_label.Click += sign_in_redirect_label_Click;
         // 
+        // panel1
+        // 
+        panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+        panel1.BackgroundImageLayout = ImageLayout.None;
+        panel1.Controls.Add(sign_up_email_text_box);
+        panel1.Controls.Add(sign_up_username_text_box);
+        panel1.Controls.Add(sign_up_password_text_box);
+        panel1.Controls.Add(sign_up_button);
+        panel1.Controls.Add(sign_up_confirm_password_text_box);
+        panel1.Location = new Point(301, 109);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(687, 431);
+        panel1.TabIndex = 7;
+        // 
         // SignUp
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(30, 30, 50);
         ClientSize = new Size(1262, 673);
+        Controls.Add(panel1);
         Controls.Add(sign_in_redirect_label);
         Controls.Add(label1);
-        Controls.Add(sign_up_button);
-        Controls.Add(sign_up_confirm_password_text_box);
-        Controls.Add(sign_up_username_text_box);
-        Controls.Add(sign_up_password_text_box);
-        Controls.Add(sign_up_email_text_box);
         Location = new Point(34, 34);
-        Margin = new Padding(2, 2, 2, 2);
+        Margin = new Padding(2);
         Name = "SignUp";
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     private System.Windows.Forms.TextBox sign_up_email_text_box;
@@ -146,4 +161,6 @@ partial class SignUp
     private System.Windows.Forms.Label sign_in_redirect_label;
 
     #endregion
+
+    private Panel panel1;
 }
