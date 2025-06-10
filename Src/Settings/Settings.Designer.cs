@@ -150,10 +150,9 @@
             settings_label.Size = new Size(141, 46);
             settings_label.TabIndex = 6;
             settings_label.Text = "Settings";
-            //
+            // 
             // dashboard_button
-            //
-            dashboard_button.BackgroundImage = (Image)resources.GetObject("dashboard_button.BackgroundImage");
+            // 
             dashboard_button.Location = new Point(691, 21);
             dashboard_button.Name = "dashboard_button";
             dashboard_button.Size = new Size(94, 29);
@@ -161,10 +160,9 @@
             dashboard_button.Text = "Dashboard";
             dashboard_button.UseVisualStyleBackColor = true;
             dashboard_button.Click += dashboard_button_Click;
-            //
+            // 
             // settings_button
-            //
-            settings_button.BackgroundImage = (Image)resources.GetObject("settings_button.BackgroundImage");
+            // 
             settings_button.Location = new Point(814, 21);
             settings_button.Name = "settings_button";
             settings_button.Size = new Size(94, 29);
