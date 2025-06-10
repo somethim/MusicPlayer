@@ -1,34 +1,20 @@
-using MusicPlayer.Utils;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
-namespace MusicPlayer;
-
-public partial class Dashboard : Form
+namespace MusicPlayer
 {
-    public Dashboard()
+    public partial class Dashboard : Form
     {
-        LoadSongs();
-        InitializeComponent();
-    }
-
-    private static async void LoadSongs()
-    {
-        try
+        public Dashboard()
         {
-            var searcher = new SongSearcher();
-            var songs = await searcher.SearchSongsOnline("rats");
-
-            foreach (var song in songs.Results)
-            {
-                Console.WriteLine($@"Artist: {song.Artist}");
-                Console.WriteLine($@"Title: {song.Title}");
-                Console.WriteLine($@"Duration: {song.Duration}");
-                Console.WriteLine($@"Download from: {song.AudioDownloadPath}");
-                Console.WriteLine($@"Stream from: {song.AudioPath}");
-            }
+            InitializeComponent();
         }
-        catch (Exception e)
+       
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(e);
+
         }
     }
 }
