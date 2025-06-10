@@ -22,7 +22,7 @@ public partial class Dashboard : Form
         InitializeComponent();
     }
 
-    private async Task search_button_click(object sender, EventArgs e)
+    private async void search_button_Click(object sender, EventArgs e)
     {
         try
         {
@@ -52,28 +52,36 @@ public partial class Dashboard : Form
         }
     }
 
-    private async Task LoadCurrentSong(Song song)
+    private async void LoadCurrentSong(Song song)
     {
-        if (!string.IsNullOrEmpty(song.AlbumImage))
-            try
-            {
-                using var httpClient = new HttpClient();
-                var imageBytes = await httpClient.GetByteArrayAsync(song.AlbumImage);
-                using var ms = new MemoryStream(imageBytes);
-                playerArtwork.Image = Image.FromStream(ms);
-            }
-            catch
-            {
+        try
+        {
+            if (!string.IsNullOrEmpty(song.AlbumImage))
+                try
+                {
+                    using var httpClient = new HttpClient();
+                    var imageBytes = await httpClient.GetByteArrayAsync(song.AlbumImage);
+                    using var ms = new MemoryStream(imageBytes);
+                    playerArtwork.Image = Image.FromStream(ms);
+                }
+                catch
+                {
+                    playerArtwork.Image = null;
+                }
+            else
                 playerArtwork.Image = null;
-            }
-        else
-            playerArtwork.Image = null;
 
-        dashboardCurrentSongs.Text = song.Title;
-        playerSong.Text = song.Artist;
+            dashboardCurrentSongs.Text = song.Title;
+            playerSong.Text = song.Artist;
 
-        progressBar.Maximum = song.Duration ?? 0;
-        progressBar.Value = 0;
+            progressBar.Maximum = song.Duration ?? 0;
+            progressBar.Value = 0;
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(@$"Error loading current song: {e.Message}", @"Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
     }
 
     private void LoadSongs(List<Song> songs)

@@ -75,6 +75,7 @@
             pictureBox7 = new PictureBox();
             settings_button = new Button();
             music_button = new Button();
+            search_button = new Button();
             songList1.SuspendLayout();
             songPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)songArtwork).BeginInit();
@@ -120,13 +121,12 @@
             searchBox.BackColor = Color.FromArgb(30, 30, 50);
             searchBox.BorderStyle = BorderStyle.None;
             searchBox.ForeColor = Color.BlueViolet;
-            searchBox.Location = new Point(169, 88);
+            searchBox.Location = new Point(211, 88);
             searchBox.Margin = new Padding(2, 3, 2, 3);
             searchBox.Multiline = true;
             searchBox.Name = "searchBox";
-            searchBox.Size = new Size(920, 21);
+            searchBox.Size = new Size(878, 21);
             searchBox.TabIndex = 3;
-            searchBox.Text = "🔍";
             //
             // songList1
             // 
@@ -641,6 +641,19 @@
             music_button.Text = "Music";
             music_button.UseVisualStyleBackColor = true;
             music_button.Click += dashboard_button_Click;
+            //
+            // search_button
+            //
+            search_button.BackColor = Color.FromArgb(30, 30, 50);
+            search_button.ForeColor = Color.FromArgb(150, 100, 200);
+            search_button.Location = new Point(172, 84);
+            search_button.Name = "search_button";
+            search_button.Size = new Size(34, 29);
+            search_button.Visible = true;
+            search_button.TabIndex = 8;
+            search_button.Text = "🔍";
+            search_button.UseVisualStyleBackColor = false;
+            search_button.Click += search_button_Click;
             // 
             // Dashboard
             // 
@@ -739,5 +752,6 @@
         private PictureBox pictureBox7;
         private Button settings_button;
         private Button music_button;
+        private Button search_button;
     }
 }
