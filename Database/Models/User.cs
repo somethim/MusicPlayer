@@ -40,7 +40,7 @@ public class User
         await dbContext.SaveChangesAsync();
     }
 
-    public static async Task Register(RemoteMusicPlayerContext dbContext, string username, string email,
+    public static async Task<User> Register(RemoteMusicPlayerContext dbContext, string username, string email,
         string password)
     {
         var user = await Create(dbContext, username, email, password);
@@ -48,6 +48,8 @@ public class User
 
         if (token == null)
             throw new InvalidOperationException("Failed to login after register.");
+
+        return user;
     }
 
     public static User FindByToken(RemoteMusicPlayerContext dbContext, TokenHandler.TokenData storedToken)

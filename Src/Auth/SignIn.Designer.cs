@@ -75,8 +75,7 @@
             sign_in_password_text_box.PlaceholderText = "Password";
             sign_in_password_text_box.Size = new Size(199, 34);
             sign_in_password_text_box.TabIndex = 1;
-            sign_in_password_text_box.TextChanged += sign_in_password_text_box_TextChanged;
-            // 
+            //
             // sign_in_username_email_text_box
             // 
             sign_in_username_email_text_box.Font = new Font("Segoe UI", 12F);

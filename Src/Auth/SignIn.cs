@@ -5,11 +5,13 @@ namespace MusicPlayer.Auth;
 
 public partial class SignIn : Form
 {
-    private readonly RemoteMusicPlayerContext _dbContext;
+    private readonly LocalMusicPlayerContext _localDbContext;
+    private readonly RemoteMusicPlayerContext _remoteDbContext;
 
-    public SignIn(RemoteMusicPlayerContext dbContext)
+    public SignIn(LocalMusicPlayerContext localDbContext, RemoteMusicPlayerContext remoteDbContext)
     {
-        _dbContext = dbContext;
+        _localDbContext = localDbContext;
+        _remoteDbContext = remoteDbContext;
         InitializeComponent();
     }
 
@@ -23,11 +25,11 @@ public partial class SignIn : Form
             if (string.IsNullOrWhiteSpace(usernameOrEmail) || string.IsNullOrWhiteSpace(password))
                 throw new InvalidOperationException("Username/Email and Password cannot be empty.");
 
-            var user = await User.FindByUsernameOrEmail(_dbContext, usernameOrEmail)
+            var user = await User.FindByUsernameOrEmail(_remoteDbContext, usernameOrEmail)
                        ?? throw new InvalidOperationException("User not found.");
 
-            await user.Login(_dbContext, password);
-            var dashboard = new Dashboard();
+            await user.Login(_remoteDbContext, password);
+            var dashboard = new Dashboard.Dashboard(_localDbContext, _remoteDbContext, user);
             dashboard.Show();
             Hide();
         }
@@ -39,13 +41,8 @@ public partial class SignIn : Form
 
     private void sign_up_redirect_label_Click(object sender, EventArgs e)
     {
-        var signUpForm = new SignUp(_dbContext);
+        var signUpForm = new SignUp(_remoteDbContext, _remoteDbContext);
         signUpForm.Show();
         Hide();
-    }
-
-    private void sign_in_password_text_box_TextChanged(object sender, EventArgs e)
-    {
-
     }
 }

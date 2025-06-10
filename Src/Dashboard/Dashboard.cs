@@ -17,6 +17,16 @@ public partial class Dashboard : Form
         InitializeComponent();
     }
 
+    // progressBar
+    // playButton
+    // likeButton
+    // playerArtwork
+    // songArtwork
+    // dashboardCurrentSongs
+    // playerSong
+    // songTitle
+    // songArtist
+    // songPannel
 
     private void dashboard_button_Click(object sender, EventArgs e)
     {
