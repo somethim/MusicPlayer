@@ -53,4 +53,32 @@ public partial class Music : Form
         var song = _songs[index];
         MessageBox.Show(@$"Now playing: {song}");
     }
+
+    private void dashboard_button_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            var dashboard = new Dashboard();
+            dashboard.Show();
+            Hide();
+        }
+        catch(Exception ex) {
+            MessageBox.Show(@$"An error occurred: {ex.Message}");
+        }
+    }
+
+    private void settings_button_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var settings =new Settings.Settings();
+            settings.Show();
+            Hide();
+        }
+        catch(Exception ex) {
+            MessageBox.Show($@"An error has ocurred: {ex.Message}");
+
+
+    }
 }

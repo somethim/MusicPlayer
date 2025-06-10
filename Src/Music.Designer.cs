@@ -38,9 +38,7 @@
             music_next_song_button = new PictureBox();
             music_previous_song_button = new PictureBox();
             dashboard_button = new Button();
-            music_button = new Button();
             settings_button = new Button();
-            sign_in_button = new Button();
             music_playlist_elements_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -55,11 +53,11 @@
             music_playlist_lbl.BackColor = Color.Transparent;
             music_playlist_lbl.Font = new Font("Segoe UI", 18F);
             music_playlist_lbl.ForeColor = SystemColors.ButtonHighlight;
-            music_playlist_lbl.Location = new Point(45, 9);
+            music_playlist_lbl.Location = new Point(68, 9);
             music_playlist_lbl.Name = "music_playlist_lbl";
-            music_playlist_lbl.Size = new Size(176, 41);
+            music_playlist_lbl.Size = new Size(278, 41);
             music_playlist_lbl.TabIndex = 0;
-            music_playlist_lbl.Text = "Your Playlist";
+            music_playlist_lbl.Text = "Downloaded Songs";
             // 
             // music_playlist_elements_panel
             // 
@@ -137,39 +135,25 @@
             // 
             // dashboard_button
             // 
-            dashboard_button.Location = new Point(626, 16);
+            dashboard_button.BackgroundImage = (Image)resources.GetObject("dashboard_button.BackgroundImage");
+            dashboard_button.Location = new Point(691, 21);
             dashboard_button.Name = "dashboard_button";
             dashboard_button.Size = new Size(94, 29);
             dashboard_button.TabIndex = 5;
             dashboard_button.Text = "Dashboard";
             dashboard_button.UseVisualStyleBackColor = true;
-            // 
-            // music_button
-            // 
-            music_button.Location = new Point(742, 16);
-            music_button.Name = "music_button";
-            music_button.Size = new Size(94, 29);
-            music_button.TabIndex = 6;
-            music_button.Text = "Music";
-            music_button.UseVisualStyleBackColor = true;
+            dashboard_button.Click += dashboard_button_Click;
             // 
             // settings_button
             // 
-            settings_button.Location = new Point(858, 16);
+            settings_button.BackgroundImage = (Image)resources.GetObject("settings_button.BackgroundImage");
+            settings_button.Location = new Point(814, 21);
             settings_button.Name = "settings_button";
             settings_button.Size = new Size(94, 29);
             settings_button.TabIndex = 7;
             settings_button.Text = "Settings";
             settings_button.UseVisualStyleBackColor = true;
-            // 
-            // sign_in_button
-            // 
-            sign_in_button.Location = new Point(977, 16);
-            sign_in_button.Name = "sign_in_button";
-            sign_in_button.Size = new Size(94, 29);
-            sign_in_button.TabIndex = 8;
-            sign_in_button.Text = "Sign In";
-            sign_in_button.UseVisualStyleBackColor = true;
+            settings_button.Click += settings_button_Click;
             // 
             // Music
             // 
@@ -177,9 +161,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 50);
             ClientSize = new Size(1262, 673);
-            Controls.Add(sign_in_button);
             Controls.Add(settings_button);
-            Controls.Add(music_button);
             Controls.Add(dashboard_button);
             Controls.Add(music_previous_song_button);
             Controls.Add(music_next_song_button);
@@ -211,6 +193,5 @@
         private Button dashboard_button;
         private Button music_button;
         private Button settings_button;
-        private Button sign_in_button;
     }
 }
