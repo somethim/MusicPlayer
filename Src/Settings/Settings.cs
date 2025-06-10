@@ -101,7 +101,7 @@ public partial class Settings : Form
         try
         {
             await _user.Logout(_remoteDbContext);
-            var loginForm = new SignIn(_remoteDbContext);
+            var loginForm = new SignIn(_localDbContext, _remoteDbContext);
             loginForm.Show();
             Hide();
         }
@@ -139,4 +139,6 @@ public partial class Settings : Form
             MessageBox.Show($@"An error has occurred: {ex.Message}");
         }
     }
+
+    
 }
