@@ -34,8 +34,8 @@
             welcomeLabel = new Label();
             searchBox = new TextBox();
             featuredPanel = new Panel();
-            nextButton = new Button();
             featuredSubtitle = new Label();
+            nextButton = new Button();
             featuredTitle = new Label();
             discoverLabel = new Label();
             songList = new FlowLayoutPanel();
@@ -105,6 +105,18 @@
             featuredPanel.Size = new Size(805, 246);
             featuredPanel.TabIndex = 4;
             // 
+            // featuredSubtitle
+            // 
+            featuredSubtitle.AutoSize = true;
+            featuredSubtitle.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            featuredSubtitle.ForeColor = Color.LightGray;
+            featuredSubtitle.Location = new Point(2, 34);
+            featuredSubtitle.Margin = new Padding(2, 0, 2, 0);
+            featuredSubtitle.Name = "featuredSubtitle";
+            featuredSubtitle.Size = new Size(306, 20);
+            featuredSubtitle.TabIndex = 6;
+            featuredSubtitle.Text = "Top songs being discoverd around the world right now";
+            // 
             // nextButton
             // 
             nextButton.BackColor = Color.FromArgb(100, 50, 200);
@@ -120,21 +132,10 @@
             nextButton.Text = "→";
             nextButton.UseVisualStyleBackColor = false;
             // 
-            // featuredSubtitle
-            // 
-            featuredSubtitle.AutoSize = true;
-            featuredSubtitle.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            featuredSubtitle.ForeColor = Color.LightGray;
-            featuredSubtitle.Location = new Point(2, 34);
-            featuredSubtitle.Margin = new Padding(2, 0, 2, 0);
-            featuredSubtitle.Name = "featuredSubtitle";
-            featuredSubtitle.Size = new Size(306, 20);
-            featuredSubtitle.TabIndex = 6;
-            featuredSubtitle.Text = "Top songs being discoverd around the world right now";
-            // 
             // featuredTitle
             // 
             featuredTitle.AutoSize = true;
+            featuredTitle.BackColor = Color.FromArgb(50, 50, 70);
             featuredTitle.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             featuredTitle.ForeColor = Color.White;
             featuredTitle.Location = new Point(11, 0);
