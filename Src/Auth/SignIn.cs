@@ -41,7 +41,7 @@ public partial class SignIn : Form
 
     private void sign_up_redirect_label_Click(object sender, EventArgs e)
     {
-        var signUpForm = new SignUp(_remoteDbContext, _remoteDbContext);
+        var signUpForm = new SignUp(_localDbContext, _remoteDbContext);
         signUpForm.Show();
         Hide();
     }
