@@ -43,4 +43,9 @@ public partial class SignIn : Form
         signUpForm.Show();
         Hide();
     }
+
+    private void sign_in_password_text_box_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

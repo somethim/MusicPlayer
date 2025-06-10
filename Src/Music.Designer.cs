@@ -37,6 +37,10 @@
             music_play_button = new PictureBox();
             music_next_song_button = new PictureBox();
             music_previous_song_button = new PictureBox();
+            dashboard_button = new Button();
+            music_button = new Button();
+            settings_button = new Button();
+            sign_in_button = new Button();
             music_playlist_elements_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -131,12 +135,52 @@
             music_previous_song_button.TabIndex = 4;
             music_previous_song_button.TabStop = false;
             // 
+            // dashboard_button
+            // 
+            dashboard_button.Location = new Point(626, 16);
+            dashboard_button.Name = "dashboard_button";
+            dashboard_button.Size = new Size(94, 29);
+            dashboard_button.TabIndex = 5;
+            dashboard_button.Text = "Dashboard";
+            dashboard_button.UseVisualStyleBackColor = true;
+            // 
+            // music_button
+            // 
+            music_button.Location = new Point(742, 16);
+            music_button.Name = "music_button";
+            music_button.Size = new Size(94, 29);
+            music_button.TabIndex = 6;
+            music_button.Text = "Music";
+            music_button.UseVisualStyleBackColor = true;
+            // 
+            // settings_button
+            // 
+            settings_button.Location = new Point(858, 16);
+            settings_button.Name = "settings_button";
+            settings_button.Size = new Size(94, 29);
+            settings_button.TabIndex = 7;
+            settings_button.Text = "Settings";
+            settings_button.UseVisualStyleBackColor = true;
+            // 
+            // sign_in_button
+            // 
+            sign_in_button.Location = new Point(977, 16);
+            sign_in_button.Name = "sign_in_button";
+            sign_in_button.Size = new Size(94, 29);
+            sign_in_button.TabIndex = 8;
+            sign_in_button.Text = "Sign In";
+            sign_in_button.UseVisualStyleBackColor = true;
+            // 
             // Music
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 50);
             ClientSize = new Size(1262, 673);
+            Controls.Add(sign_in_button);
+            Controls.Add(settings_button);
+            Controls.Add(music_button);
+            Controls.Add(dashboard_button);
             Controls.Add(music_previous_song_button);
             Controls.Add(music_next_song_button);
             Controls.Add(music_play_button);
@@ -164,5 +208,9 @@
         private PictureBox music_play_button;
         private PictureBox music_next_song_button;
         private PictureBox music_previous_song_button;
+        private Button dashboard_button;
+        private Button music_button;
+        private Button settings_button;
+        private Button sign_in_button;
     }
 }

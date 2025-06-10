@@ -121,7 +121,7 @@
   <data name="music_playlist_elements_panel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAC7gAAAfRCAIAAAAWLFbIAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAACV0RVh0U29mdHdhcmUAQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKbAVuusA
+        DAAACwwBP0AiyAAAACV0RVh0U29mdHdhcmUAQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKbAVuusA
         AAAHdElNRQfmBAQQHh8zRPLyAAD/bklEQVR4Xuz995cd15nm+dbPIxKGIEAPm/BAwntLgA4kQSdSovdG
         lEhKJEVS1d3TZnqmy7Sr7q4u1z1dkihXVXPn3j/xvhFPxBPvft4dO+KYTGSCudZ3xdqxY5+T5gRYtVZ+
         tOOPvnn3/2v94r3/H8OM9fU7/6/01dv/H/Tzt/4f6cs3/0n64o1/lD5//R+kn732B+mnr/5e+uyV31mf
@@ -21856,7 +21856,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZAAAAIwCAYAAACoSz2/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6+AAAOvgHqQrHAAAD/hklE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA69AAAOvQFH+5CtAAD/hklE
         QVR4Xuz9CZhnyVXeCdO1ZVZVLlXd6u7aq7ur9271plZr6dYCiB1mBAYBEmhFEhIYYw/MMAx8BgZhGzBG
         tjFjvs8YLONFH9rALMYGIbVG4wWQQAIkFi0gjC3GxgiNEGjJOb9z4o04N/73n5VZ2V2ZWXXjed4nIk4s
         N+6NiPPeE3GXT7lU3BVXXFFCO9dttY274Rwnt7McY2YnYHKT29FuNwzSrbZxmoiT26yTAt9uTG5yO9rt
@@ -23165,7 +23165,7 @@
   <data name="music_play_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJ0AAACdCAYAAACuJnrWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAktpJREFUeF7tnQeAW9WV/r2b3f8mmwL2jKTRjGbUu0bTi6QZe9x7r7hgY4MxYKrp
+        DQAACw0B7QfALAAAktpJREFUeF7tnQeAW9WV/r2b3f8mmwL2jKTRjGbUu0bTi6QZe9x7r7hgY4MxYKrp
         1aH33jvGGDCm2BjjjjHG9JKEkN42jU1IIz0kuf/vO/fepzfjoSQhdXlwfJ+enjTSez9955xbB/yrb0qp
         f3OXduNjc0zKvs/b7Z2Ou7f3c86H27/g5r7xrv1+YJDn3JDJY2POppTzPnK8z/vLY/u8fc59jt36O/bh
         9k+09b2B/Ty2pT3eV8G4b0yO0/7d2sqVK+2+Ob7y383rXSbnuI/J3zPGh70+R59953w5+OH2j7W5bxK3
@@ -23798,7 +23798,7 @@
   <data name="music_next_song_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHUAAAB0CAYAAAC7WH0ZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAWPRJREFUeF7tvQd8HNW5/u/ckuR3Q7O0VVpp2+xsX3VpiyRL7jLuvduAbUzvpoPp
+        DQAACw0B7QfALAAAWPRJREFUeF7tvQd8HNW5/u/ckuR3Q7O0VVpp2+xsX3VpiyRL7jLuvduAbUzvpoPp
         vZlqerHBgLFNNdX0XkMSEiA3IQmEdFIgJCHJ+T/Pe+asVkIGcv+5CcnNfD6vz+zsrrx7vvO85cyZs8P+
         tf1r+1/ZlFJfoDkPy5s5PtRzg7fK13za6/H8X/T6f22fsJnOG9wOsTnHBz7vvL58rOKxPqbk3wEnwaD/
         o3L/E7dP+Gz/2kznoB2qo4boOHnNF1avXv1veIvsw/5tiPbf+BrzmPvGzPN8bvWwAcfl71V+JrMN9TkH
@@ -24184,7 +24184,7 @@
   <data name="music_previous_song_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAWE9JREFUeF7tnQeYW9WZ/iflv8kSmj3qoxm1qzoaTZ+RNNW9Vxj3gm2wDTYYTAkd
+        DQAACw0B7QfALAAAWE9JREFUeF7tnQeYW9WZ/iflv8kSmj3qoxm1qzoaTZ+RNNW9Vxj3gm2wDTYYTAkd
         07vpEIMBGwMGm2KDabbpxhhMJ40QEtg0QkgIIQuElPN/3+/cI2nGJcluNiG7uc/zzb26utJI53ff73zf
         aSr7PGxKqS/Q7Ify2D7steG8fbTnbS+vNed3+/y/tv/mxgI2hVx6bG/m/O6e291mrim8bi8bru0FuNfx
         v7a9bKag/sxejvvs+z5vPy77wrKyZV8055YtKxwXztFKX2f+l73t6XiXrc9n/NfWt0CwN8emgEr3BbMh
