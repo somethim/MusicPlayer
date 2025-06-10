@@ -37,6 +37,8 @@
             settings_username_text_box = new TextBox();
             settings_email_text_box = new TextBox();
             settings_label = new Label();
+            dashboard_button = new Button();
+            settings_button = new Button();
             settings_panel.SuspendLayout();
             SuspendLayout();
             // 
@@ -148,6 +150,28 @@
             settings_label.Size = new Size(141, 46);
             settings_label.TabIndex = 6;
             settings_label.Text = "Settings";
+            //
+            // dashboard_button
+            //
+            dashboard_button.BackgroundImage = (Image)resources.GetObject("dashboard_button.BackgroundImage");
+            dashboard_button.Location = new Point(691, 21);
+            dashboard_button.Name = "dashboard_button";
+            dashboard_button.Size = new Size(94, 29);
+            dashboard_button.TabIndex = 5;
+            dashboard_button.Text = "Dashboard";
+            dashboard_button.UseVisualStyleBackColor = true;
+            dashboard_button.Click += dashboard_button_Click;
+            //
+            // settings_button
+            //
+            settings_button.BackgroundImage = (Image)resources.GetObject("settings_button.BackgroundImage");
+            settings_button.Location = new Point(814, 21);
+            settings_button.Name = "settings_button";
+            settings_button.Size = new Size(94, 29);
+            settings_button.TabIndex = 7;
+            settings_button.Text = "Settings";
+            settings_button.UseVisualStyleBackColor = true;
+            settings_button.Click += settings_button_Click;
             // 
             // Settings
             // 
@@ -174,5 +198,7 @@
         private TextBox settings_email_text_box;
         private System.Windows.Forms.Button settings_sign_out_button;
         private System.Windows.Forms.Button settings_submit_button;
+        private Button dashboard_button;
+        private Button settings_button;
     }
 }

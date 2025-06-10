@@ -56,7 +56,7 @@ internal static class Program
 
             var localDbContext = host.Services.GetRequiredService<LocalMusicPlayerContext>();
             var remoteDbContext = host.Services.GetRequiredService<RemoteMusicPlayerContext>();
-            Application.Run(new Dashboard(localDbContext, remoteDbContext, user));
+            Application.Run(new Dashboard.Dashboard(localDbContext, remoteDbContext, user));
         }
         catch (Exception)
         {

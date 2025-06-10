@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer
+﻿namespace MusicPlayer.Dashboard
 {
     partial class Dashboard
     {
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Music.Music));
             components = new System.ComponentModel.Container();
             contextMenuStrip1 = new ContextMenuStrip(components);
             welcomeLabel = new Label();
             searchBox = new TextBox();
-            songList = new FlowLayoutPanel();
+            songList1 = new FlowLayoutPanel();
             songPanel = new Panel();
             songArtist = new Label();
             songTitle = new Label();
@@ -73,7 +74,9 @@
             label13 = new Label();
             label14 = new Label();
             pictureBox7 = new PictureBox();
-            songList.SuspendLayout();
+            settings_button = new Button();
+            music_button = new Button();
+            songList1.SuspendLayout();
             songPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)songArtwork).BeginInit();
             playerPanel.SuspendLayout();
@@ -111,7 +114,7 @@
             welcomeLabel.Name = "welcomeLabel";
             welcomeLabel.Size = new Size(352, 56);
             welcomeLabel.TabIndex = 1;
-            welcomeLabel.Text = "Welcome,Sara";
+            welcomeLabel.Text = "Welcome to Music Player!";
             // 
             // searchBox
             // 
@@ -126,19 +129,19 @@
             searchBox.TabIndex = 3;
             searchBox.Text = "🔍";
             // 
-            // songList
+            // songList1
             // 
-            songList.AutoScroll = true;
-            songList.Controls.Add(songPanel);
-            songList.Controls.Add(panel1);
-            songList.Controls.Add(panel2);
-            songList.Controls.Add(panel3);
-            songList.FlowDirection = FlowDirection.TopDown;
-            songList.Location = new Point(78, 226);
-            songList.Margin = new Padding(4, 5, 4, 5);
-            songList.Name = "songList";
-            songList.Size = new Size(829, 590);
-            songList.TabIndex = 6;
+            songList1.AutoScroll = true;
+            songList1.Controls.Add(songPanel);
+            songList1.Controls.Add(panel1);
+            songList1.Controls.Add(panel2);
+            songList1.Controls.Add(panel3);
+            songList1.FlowDirection = FlowDirection.TopDown;
+            songList1.Location = new Point(78, 226);
+            songList1.Margin = new Padding(4, 5, 4, 5);
+            songList1.Name = "songList1";
+            songList1.Size = new Size(829, 590);
+            songList1.TabIndex = 6;
             // 
             // songPanel
             // 
@@ -428,8 +431,7 @@
             songList2.Name = "songList2";
             songList2.Size = new Size(830, 590);
             songList2.TabIndex = 7;
-            songList2.Paint += flowLayoutPanel1_Paint;
-            // 
+            //
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(30, 30, 50);
@@ -617,6 +619,28 @@
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
+            //
+            // dashboard_button
+            //
+            music_button.BackgroundImage = (Image)resources.GetObject("music_button.BackgroundImage");
+            music_button.Location = new Point(691, 21);
+            music_button.Name = "music_button";
+            music_button.Size = new Size(94, 29);
+            music_button.TabIndex = 5;
+            music_button.Text = "Music";
+            music_button.UseVisualStyleBackColor = true;
+            music_button.Click += dashboard_button_Click;
+            //
+            // settings_button
+            //
+            settings_button.BackgroundImage = (Image)resources.GetObject("settings_button.BackgroundImage");
+            settings_button.Location = new Point(814, 21);
+            settings_button.Name = "settings_button";
+            settings_button.Size = new Size(94, 29);
+            settings_button.TabIndex = 7;
+            settings_button.Text = "Settings";
+            settings_button.UseVisualStyleBackColor = true;
+            settings_button.Click += settings_button_Click;
             // 
             // Dashboard
             // 
@@ -628,13 +652,13 @@
             ClientSize = new Size(1892, 1001);
             Controls.Add(songList2);
             Controls.Add(playerPanel);
-            Controls.Add(songList);
+            Controls.Add(songList1);
             Controls.Add(searchBox);
             Controls.Add(welcomeLabel);
             Margin = new Padding(4, 5, 4, 5);
             Name = "Dashboard";
             Text = "Music Player Dashboard";
-            songList.ResumeLayout(false);
+            songList1.ResumeLayout(false);
             songPanel.ResumeLayout(false);
             songPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)songArtwork).EndInit();
@@ -672,7 +696,7 @@
         private ContextMenuStrip contextMenuStrip1;
         private Label welcomeLabel;
         private TextBox searchBox;
-        private FlowLayoutPanel songList;
+        private FlowLayoutPanel songList1;
         private Panel songPanel;
         private PictureBox songArtwork;
         private Label songArtist;
@@ -713,5 +737,7 @@
         private Label label13;
         private Label label14;
         private PictureBox pictureBox7;
+        private Button settings_button;
+        private Button music_button;
     }
 }

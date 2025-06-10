@@ -6,16 +6,16 @@ namespace MusicPlayer.Music;
 
 public partial class Music : Form
 {
-    private readonly LocalMusicPlayerContext _localMusicPlayerContext;
-    private readonly RemoteMusicPlayerContext _remoteMusicPlayerContext;
+    private readonly LocalMusicPlayerContext _localDbContext;
+    private readonly RemoteMusicPlayerContext _remoteDbContext;
     private readonly User _user;
     private SongManager _manager = null!;
     private List<Song> _songs = [];
 
     public Music(LocalMusicPlayerContext localDbContext, RemoteMusicPlayerContext remoteDbContext, User user)
     {
-        _localMusicPlayerContext = localDbContext;
-        _remoteMusicPlayerContext = remoteDbContext;
+        _localDbContext = localDbContext;
+        _remoteDbContext = remoteDbContext;
         _user = user;
         LoadSongs();
         InitializeComponent();
@@ -25,7 +25,7 @@ public partial class Music : Form
     {
         try
         {
-            var songs = Song.Index(_localMusicPlayerContext);
+            var songs = Song.Index(_localDbContext);
             if (songs.Count == 0) return;
 
             _songs = songs;
@@ -85,7 +85,7 @@ public partial class Music : Form
     {
         try
         {
-            var dashboard = new Dashboard();
+            var dashboard = new Dashboard.Dashboard(_localDbContext, _remoteDbContext, _user);
             dashboard.Show();
             Hide();
         }
@@ -99,7 +99,7 @@ public partial class Music : Form
     {
         try
         {
-            var settings = new Settings.Settings(_remoteMusicPlayerContext, _user);
+            var settings = new Settings.Settings(_localDbContext, _remoteDbContext, _user);
             settings.Show();
             Hide();
         }

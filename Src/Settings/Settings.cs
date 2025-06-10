@@ -8,12 +8,15 @@ namespace MusicPlayer.Settings;
 
 public partial class Settings : Form
 {
-    private readonly RemoteMusicPlayerContext _dbContext;
+    private readonly LocalMusicPlayerContext _localDbContext;
+    private readonly RemoteMusicPlayerContext _remoteDbContext;
     private readonly User _user;
 
-    public Settings(RemoteMusicPlayerContext dbContext, User user)
+    public Settings(LocalMusicPlayerContext localDbContext, RemoteMusicPlayerContext remoteDbContext,
+        User user)
     {
-        _dbContext = dbContext;
+        _localDbContext = localDbContext;
+        _remoteDbContext = remoteDbContext;
         _user = user;
         InitializeComponent();
     }
@@ -69,7 +72,7 @@ public partial class Settings : Form
 
             if (hasUpdates)
             {
-                await _user.Update(_dbContext);
+                await _user.Update(_remoteDbContext);
                 MessageBox.Show(updateSummary, @"Settings Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -97,8 +100,8 @@ public partial class Settings : Form
     {
         try
         {
-            await _user.Logout(_dbContext);
-            var loginForm = new SignIn(_dbContext);
+            await _user.Logout(_remoteDbContext);
+            var loginForm = new SignIn(_remoteDbContext);
             loginForm.Show();
             Hide();
         }
@@ -106,6 +109,34 @@ public partial class Settings : Form
         {
             MessageBox.Show(@$"An error occurred while updating settings: {ex.Message}", @"Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
+        }
+    }
+
+    private void dashboard_button_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var music = new Music.Music(_localDbContext, _remoteDbContext, _user);
+            music.Show();
+            Hide();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@$"An error occurred: {ex.Message}");
+        }
+    }
+
+    private void settings_button_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var dashboard = new Dashboard.Dashboard(_localDbContext, _remoteDbContext, _user);
+            dashboard.Show();
+            Hide();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($@"An error has occurred: {ex.Message}");
         }
     }
 }
