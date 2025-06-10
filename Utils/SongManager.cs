@@ -10,7 +10,7 @@ public class SongManager(List<Song> songs) : IDisposable
     private bool _disposed;
     private WaveOutEvent? _wavePlayer;
 
-    private int CurrentIndex { get; set; } = -1;
+    public int CurrentIndex { get; set; } = -1;
     private bool HasNext => CurrentIndex < _songs.Count - 1;
     private bool HasPrevious => CurrentIndex > 0;
     private PlaybackState PlaybackState => _wavePlayer?.PlaybackState ?? PlaybackState.Stopped;

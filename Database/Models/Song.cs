@@ -50,6 +50,8 @@ public class Song
             song.AudioPath = filePath;
             song.Id = Guid.NewGuid();
             Create(dbContext, song).Wait();
+            dbContext.Songs.Add(song);
+            await dbContext.SaveChangesAsync();
         }
         catch (HttpRequestException ex)
         {

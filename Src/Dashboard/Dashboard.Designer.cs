@@ -128,7 +128,7 @@
             searchBox.Size = new Size(1725, 39);
             searchBox.TabIndex = 3;
             searchBox.Text = "🔍";
-            // 
+            //
             // songList1
             // 
             songList1.AutoScroll = true;
@@ -228,6 +228,7 @@
             playButton.TabIndex = 12;
             playButton.Text = "||";
             playButton.UseVisualStyleBackColor = false;
+            playButton.Click += playButton_Click;
             // 
             // likeButton
             // 
@@ -241,6 +242,7 @@
             likeButton.TabIndex = 11;
             likeButton.Text = "❤️";
             likeButton.UseVisualStyleBackColor = false;
+            likeButton.Click += likeButton_Click;
             // 
             // dashboardCurrentSongs
             // 
