@@ -54,8 +54,9 @@ internal static class Program
                                             throw new InvalidOperationException("User token is null.")))
                 throw new InvalidOperationException("Invalid or expired token.");
 
-            // var localDbContext = host.Services.GetRequiredService<LocalMusicPlayerContext>();
-            Application.Run(new Dashboard());
+            var localDbContext = host.Services.GetRequiredService<LocalMusicPlayerContext>();
+            var remoteDbContext = host.Services.GetRequiredService<RemoteMusicPlayerContext>();
+            Application.Run(new Dashboard(localDbContext, remoteDbContext, user));
         }
         catch (Exception)
         {

@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer
+﻿namespace MusicPlayer.Music
 {
     partial class Music
     {
@@ -110,6 +110,7 @@
             music_play_button.Size = new Size(113, 110);
             music_play_button.TabIndex = 3;
             music_play_button.TabStop = false;
+            music_play_button.Click += music_play_button_Click;
             // 
             // music_next_song_button
             // 
@@ -121,6 +122,7 @@
             music_next_song_button.Size = new Size(113, 110);
             music_next_song_button.TabIndex = 4;
             music_next_song_button.TabStop = false;
+            music_next_song_button.Click += music_next_song_button_Click;
             // 
             // music_previous_song_button
             // 
@@ -132,6 +134,7 @@
             music_previous_song_button.Size = new Size(113, 110);
             music_previous_song_button.TabIndex = 4;
             music_previous_song_button.TabStop = false;
+            music_previous_song_button.Click += music_previous_song_button_Click;
             // 
             // dashboard_button
             // 
@@ -169,7 +172,6 @@
             Controls.Add(music_playlist_elements_panel);
             Controls.Add(music_playlist_lbl);
             Name = "Music";
-            Load += Music_Load;
             music_playlist_elements_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -191,7 +193,6 @@
         private PictureBox music_next_song_button;
         private PictureBox music_previous_song_button;
         private Button dashboard_button;
-        private Button music_button;
         private Button settings_button;
     }
 }

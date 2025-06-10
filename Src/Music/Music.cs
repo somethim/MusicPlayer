@@ -6,13 +6,17 @@ namespace MusicPlayer.Music;
 
 public partial class Music : Form
 {
-    private readonly LocalMusicPlayerContext _dbContext;
+    private readonly LocalMusicPlayerContext _localMusicPlayerContext;
+    private readonly RemoteMusicPlayerContext _remoteMusicPlayerContext;
+    private readonly User _user;
     private SongManager _manager = null!;
     private List<Song> _songs = [];
 
-    public Music(LocalMusicPlayerContext dbContext)
+    public Music(LocalMusicPlayerContext localDbContext, RemoteMusicPlayerContext remoteDbContext, User user)
     {
-        _dbContext = dbContext;
+        _localMusicPlayerContext = localDbContext;
+        _remoteMusicPlayerContext = remoteDbContext;
+        _user = user;
         LoadSongs();
         InitializeComponent();
     }
@@ -21,7 +25,7 @@ public partial class Music : Form
     {
         try
         {
-            var songs = Song.Index(_dbContext);
+            var songs = Song.Index(_localMusicPlayerContext);
             if (songs.Count == 0) return;
 
             _songs = songs;
@@ -37,8 +41,13 @@ public partial class Music : Form
     {
         try
         {
-            var state = _manager.TogglePlayPause();
-            // todo: Update UI based on playback state
+            var state = (int)_manager.TogglePlayPause();
+            music_play_button.BackgroundImage = state switch
+            {
+                0 => Image.FromFile("Assets/play_button.png"),
+                1 => Image.FromFile("Assets/pause_button.png"),
+                _ => music_play_button.BackgroundImage
+            };
         }
         catch (Exception ex)
         {
@@ -69,6 +78,34 @@ public partial class Music : Form
         {
             MessageBox.Show(@$"Error playing previous song: {ex.Message}", @"Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
+        }
+    }
+
+    private void dashboard_button_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var dashboard = new Dashboard();
+            dashboard.Show();
+            Hide();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@$"An error occurred: {ex.Message}");
+        }
+    }
+
+    private void settings_button_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var settings = new Settings.Settings(_remoteMusicPlayerContext, _user);
+            settings.Show();
+            Hide();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($@"An error has occurred: {ex.Message}");
         }
     }
 }
